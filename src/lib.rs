@@ -3,7 +3,6 @@
 //! A wrapper library for linux functions
 
 #![deny(missing_docs)]
-#![feature(c_size_t)]
 
 mod descriptor;
 mod error;

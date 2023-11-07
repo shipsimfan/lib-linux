@@ -1,5 +1,5 @@
 mod errno;
-mod strerror_r;
+mod strerror_l;
 
 pub use errno::*;
-pub use strerror_r::*;
+pub use strerror_l::*;

@@ -1,6 +1,5 @@
 use crate::raw;
-use core::ffi::{c_int, c_size_t};
-use std::ffi::CStr;
+use std::ffi::{c_int, CStr};
 
 /// Result from a linux function that can error
 pub type Result<T> = std::result::Result<T, Error>;
@@ -21,13 +20,15 @@ impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         unsafe { *raw::errno() = 0 };
 
-        let mut buffer = [0; 256];
-        unsafe { raw::strerror_r(self.0, buffer.as_mut_ptr().cast(), buffer.len() as c_size_t) };
+        let ptr = unsafe { raw::strerror_l(self.0, todo!()) };
 
-        if unsafe { *raw::errno() } == 0 {
-            if let Ok(cstr) = CStr::from_bytes_until_nul(&buffer) {
-                return write!(f, "{} ({})", cstr.to_string_lossy(), self.0);
-            }
+        if !ptr.is_null() {
+            return write!(
+                f,
+                "{} ({})",
+                unsafe { CStr::from_ptr(ptr) }.to_string_lossy(),
+                self.0
+            );
         }
 
         write!(f, "unknown error ({})", self.0)
