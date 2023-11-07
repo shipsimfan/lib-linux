@@ -26,7 +26,7 @@ impl std::fmt::Display for Error {
 
         if unsafe { *raw::errno() } == 0 {
             if let Ok(cstr) = CStr::from_bytes_until_nul(&buffer) {
-                return write!(f, "{}", cstr.to_string_lossy());
+                return write!(f, "{} ({})", cstr.to_string_lossy(), self.0);
             }
         }
 
