@@ -1,4 +1,5 @@
 mod bind;
+mod listen;
 mod recv;
 mod recvfrom;
 mod recvmsg;
@@ -8,6 +9,7 @@ mod sendto;
 mod socket;
 
 pub use bind::bind;
+pub use listen::listen;
 pub use recv::recv;
 pub use recvfrom::recvfrom;
 pub use recvmsg::recvmsg;
