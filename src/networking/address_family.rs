@@ -2,7 +2,7 @@ use raw::sys::socket;
 
 /// Address families used by [`Socket::new`]
 #[repr(i32)]
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AddressFamily {
     /// Unspecified.
     Unspecified = socket::AF_UNSPEC,

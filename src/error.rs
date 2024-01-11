@@ -6,6 +6,7 @@ use std::ffi::{c_int, CStr};
 pub type Result<T> = std::result::Result<T, Error>;
 
 /// An error that occured while calling a linux function
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Error(c_int);
 
 const EMPTY_LOCALE: &'static CStr = unsafe { CStr::from_bytes_with_nul_unchecked(b"\0") };
@@ -42,6 +43,6 @@ impl std::fmt::Display for Error {
 
 impl std::fmt::Debug for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::fmt::Display::fmt(self, f)
+        write!(f, "linux::Error({})", self.0)
     }
 }

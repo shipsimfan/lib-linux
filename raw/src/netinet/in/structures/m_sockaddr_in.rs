@@ -14,6 +14,7 @@ const PADDING_SIZE: usize =
 /// Structure describing an Internet socket address
 #[repr(C)]
 #[allow(non_camel_case_types)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct sockaddr_in {
     /// [`AF_INET`]
     pub family: c_ushort,

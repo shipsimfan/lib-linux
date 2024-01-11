@@ -6,6 +6,7 @@ use crate::sys::socket::AF_NETLINK;
 
 /// Structure describing a Netlink socket address
 #[repr(C)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[allow(non_camel_case_types)]
 pub struct sockaddr_nl {
     /// [`AF_NETLINK`]

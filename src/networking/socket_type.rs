@@ -2,7 +2,7 @@ use raw::sys::socket;
 
 /// Socket types used by [`Socket::new`]
 #[repr(i32)]
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SocketType {
     /// Sequenced, reliable, connection-based byte stream
     Stream = socket::SOCK_STREAM,

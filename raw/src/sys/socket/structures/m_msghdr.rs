@@ -9,6 +9,7 @@ use crate::sys::socket::{recvmsg, sendmsg};
 /// Structure describing messages sent by [`sendmsg`] and received by [`recvmsg`]
 #[repr(C)]
 #[allow(non_camel_case_types)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct msghdr {
     /// Address to send to/receive from
     pub msg_name: *mut c_void,

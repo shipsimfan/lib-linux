@@ -8,6 +8,7 @@ use crate::sys::socket::AF_INET6;
 /// Structure describing an IPv6 socket address
 #[repr(C)]
 #[allow(non_camel_case_types)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct sockaddr_in6 {
     /// [`AF_INET6`]
     pub family: c_ushort,
