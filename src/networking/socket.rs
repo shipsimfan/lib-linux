@@ -1,6 +1,6 @@
 use crate::{AddressFamily, Descriptor, Error, Result, SocketAddress, SocketType};
 use raw::{
-    sys::socket::{recv, recvfrom, send, sendto, socket, socklen_t},
+    sys::socket::{bind, recv, recvfrom, send, sendto, socket, socklen_t},
     unistd::close,
 };
 use std::{
@@ -32,6 +32,17 @@ impl Socket {
             Err(Error::errno())
         } else {
             Ok(Socket { handle })
+        }
+    }
+
+    /// Binds this socket to `address`
+    ///
+    /// See [`bind`] for more information on this function
+    pub fn bind<A: SocketAddress>(&self, address: &A) -> Result<()> {
+        if unsafe { bind(self.handle, address.as_sockaddr_ptr(), A::SIZE) } == -1 {
+            Err(Error::errno())
+        } else {
+            Ok(())
         }
     }
 
