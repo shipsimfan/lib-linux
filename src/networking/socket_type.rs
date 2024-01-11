@@ -1,28 +1,25 @@
-use crate::raw;
+use raw::sys::socket;
 
 /// Socket types used by [`Socket::new`]
 #[repr(i32)]
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum SocketType {
     /// Sequenced, reliable, connection-based byte stream
-    Stream = raw::SOCK_STREAM,
+    Stream = socket::SOCK_STREAM,
 
     /// Connectionless, unreliable datagrams of fixed maximum length
-    Datagram = raw::SOCK_DGRAM,
-
-    /// Raw protocol interface
-    Raw = raw::SOCK_RAW,
+    Datagram = socket::SOCK_DGRAM,
 
     /// Reliably-devlivered messages
-    RDM = raw::SOCK_RDM,
+    RDM = socket::SOCK_RDM,
 
     /// Sequenced, reliable, connection-based, datagrams of fixed maximum length
-    SeqPacket = raw::SOCK_SEQPACKET,
+    SeqPacket = socket::SOCK_SEQPACKET,
 
     /// Datagram Congestion Control Protocol
-    DCCP = raw::SOCK_DCCP,
+    DCCP = socket::SOCK_DCCP,
 
     /// Linux specific way of getting packets at the dev level. For writing rarp and other similar
     /// things on the user level.
-    Packet = raw::SOCK_PACKET,
+    Packet = socket::SOCK_PACKET,
 }

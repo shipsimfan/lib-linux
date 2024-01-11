@@ -1,144 +1,144 @@
-use crate::raw;
+use raw::sys::socket;
 
 /// Address families used by [`Socket::new`]
 #[repr(i32)]
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum AddressFamily {
     /// Unspecified.
-    Unspecified = raw::AF_UNSPEC,
+    Unspecified = socket::AF_UNSPEC,
 
     /// Local to host (pipes and file-domain).
-    Local = raw::AF_LOCAL,
+    Local = socket::AF_LOCAL,
 
     /// IP protocol family.
-    INet = raw::AF_INET,
+    INet = socket::AF_INET,
 
     /// Amateur Radio AX.25.
-    AX25 = raw::AF_AX25,
+    AX25 = socket::AF_AX25,
 
     /// Novell Internet Protocol.
-    IPX = raw::AF_IPX,
+    IPX = socket::AF_IPX,
 
     /// Appletalk DDP.
-    Appletalk = raw::AF_APPLETALK,
+    Appletalk = socket::AF_APPLETALK,
 
     /// Amateur radio NetROM.
-    NetROM = raw::AF_NETROM,
+    NetROM = socket::AF_NETROM,
 
     /// Multiprotocol bridge.
-    Bridge = raw::AF_BRIDGE,
+    Bridge = socket::AF_BRIDGE,
 
     /// ATM PVCs.
-    ATMPVC = raw::AF_ATMPVC,
+    ATMPVC = socket::AF_ATMPVC,
 
     /// Reserved for X.25 project.
-    X25 = raw::AF_X25,
+    X25 = socket::AF_X25,
 
     /// IP version 6.
-    INet6 = raw::AF_INET6,
+    INet6 = socket::AF_INET6,
 
     /// Amateur Radio X.25 PLP.
-    Rose = raw::AF_ROSE,
+    Rose = socket::AF_ROSE,
 
     /// Reserved for DECnet project.
-    DECnet = raw::AF_DECNET,
+    DECnet = socket::AF_DECNET,
 
     /// Reserved for 802.2LLC project.
-    NetBEUI = raw::AF_NETBEUI,
+    NetBEUI = socket::AF_NETBEUI,
 
     /// Security callback pseudo AF.
-    Security = raw::AF_SECURITY,
+    Security = socket::AF_SECURITY,
 
     /// PF_KEY key management API.
-    Key = raw::AF_KEY,
+    Key = socket::AF_KEY,
 
     /// Netlink API
-    Netlink = raw::AF_NETLINK,
+    Netlink = socket::AF_NETLINK,
 
     /// Packet family.
-    Packet = raw::AF_PACKET,
+    Packet = socket::AF_PACKET,
 
     /// Ash.
-    Ash = raw::AF_ASH,
+    Ash = socket::AF_ASH,
 
     /// Acorn Econet.
-    Econet = raw::AF_ECONET,
+    Econet = socket::AF_ECONET,
 
     /// ATM SVCs.
-    ATMSVC = raw::AF_ATMSVC,
+    ATMSVC = socket::AF_ATMSVC,
 
     /// RDS sockets.
-    RDS = raw::AF_RDS,
+    RDS = socket::AF_RDS,
 
     /// Linux SNA Project
-    SNA = raw::AF_SNA,
+    SNA = socket::AF_SNA,
 
     /// IRDA sockets.
-    IRDA = raw::AF_IRDA,
+    IRDA = socket::AF_IRDA,
 
     /// PPPoX sockets.
-    PPPoX = raw::AF_PPPOX,
+    PPPoX = socket::AF_PPPOX,
 
     /// Wanpipe API sockets.
-    Wanpipe = raw::AF_WANPIPE,
+    Wanpipe = socket::AF_WANPIPE,
 
     /// Linux LLC.
-    LLC = raw::AF_LLC,
+    LLC = socket::AF_LLC,
 
     /// Native InfiniBand address.
-    IB = raw::AF_IB,
+    IB = socket::AF_IB,
 
     /// MPLS.
-    MPLS = raw::AF_MPLS,
+    MPLS = socket::AF_MPLS,
 
     /// Controller Area Network.
-    CAN = raw::AF_CAN,
+    CAN = socket::AF_CAN,
 
     /// TIPC sockets.
-    TIPC = raw::AF_TIPC,
+    TIPC = socket::AF_TIPC,
 
     /// Bluetooth sockets.
-    Bluetooth = raw::AF_BLUETOOTH,
+    Bluetooth = socket::AF_BLUETOOTH,
 
     /// IUCV sockets.
-    IUCV = raw::AF_IUCV,
+    IUCV = socket::AF_IUCV,
 
     /// RxRPC sockets.
-    RxRPC = raw::AF_RXRPC,
+    RxRPC = socket::AF_RXRPC,
 
     /// mISDN sockets.
-    ISDN = raw::AF_ISDN,
+    ISDN = socket::AF_ISDN,
 
     /// Phonet sockets.
-    Phonet = raw::AF_PHONET,
+    Phonet = socket::AF_PHONET,
 
     /// IEEE 802.15.4 sockets.
-    IEEE802154 = raw::AF_IEEE802154,
+    IEEE802154 = socket::AF_IEEE802154,
 
     /// CAIF sockets.
-    Caif = raw::AF_CAIF,
+    Caif = socket::AF_CAIF,
 
     /// Algorithm sockets.
-    Alg = raw::AF_ALG,
+    Alg = socket::AF_ALG,
 
     /// NFC sockets.
-    NFC = raw::AF_NFC,
+    NFC = socket::AF_NFC,
 
     /// vSockets.
-    VSock = raw::AF_VSOCK,
+    VSock = socket::AF_VSOCK,
 
     /// Kernel Connection Multiplexor.
-    KCM = raw::AF_KCM,
+    KCM = socket::AF_KCM,
 
     /// Qualcomm IPC Router.
-    QIPCRouter = raw::AF_QIPCRTR,
+    QIPCRouter = socket::AF_QIPCRTR,
 
     /// SMC sockets.
-    SMC = raw::AF_SMC,
+    SMC = socket::AF_SMC,
 
     /// XDP sockets.
-    XDP = raw::AF_XDP,
+    XDP = socket::AF_XDP,
 
     /// Management component transport protocol.
-    MCTP = raw::AF_MCTP,
+    MCTP = socket::AF_MCTP,
 }

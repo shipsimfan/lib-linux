@@ -1,4 +1,5 @@
-use crate::{raw, Locale, LC_ALL_MASK};
+use crate::{Locale, LC_ALL_MASK};
+use raw::{errno::errno, string::strerror_l};
 use std::ffi::{c_int, CStr};
 
 /// Result from a linux function that can error
@@ -10,9 +11,9 @@ pub struct Error(c_int);
 const EMPTY_LOCALE: &'static CStr = unsafe { CStr::from_bytes_with_nul_unchecked(b"\0") };
 
 impl Error {
-    /// Creates an error from the current value of [`raw::errno`]
+    /// Creates an error from the current value of [`errno`]
     pub fn errno() -> Self {
-        Error(*unsafe { raw::errno() })
+        Error(*unsafe { errno() })
     }
 }
 
@@ -20,11 +21,11 @@ impl std::error::Error for Error {}
 
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { *raw::errno() = 0 };
+        unsafe { *errno() = 0 };
 
         let locale = Locale::new(LC_ALL_MASK, EMPTY_LOCALE, None).unwrap();
 
-        let ptr = unsafe { raw::strerror_l(self.0, locale.inner()) };
+        let ptr = unsafe { strerror_l(self.0, locale.inner()) };
 
         if !ptr.is_null() {
             return write!(

@@ -1,5 +1,7 @@
-use crate::raw::{
-    sockaddr, sockaddr_in, sockaddr_in6, sockaddr_nl, AF_INET, AF_INET6, AF_NETLINK, AF_UNSPEC,
+use raw::{
+    linux::netlink::sockaddr_nl,
+    netinet::r#in::{sockaddr_in, sockaddr_in6},
+    sys::socket::{sockaddr, AF_INET, AF_INET6, AF_NETLINK, AF_UNSPEC},
 };
 
 /// A socket address type

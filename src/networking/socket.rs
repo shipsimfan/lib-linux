@@ -1,13 +1,14 @@
-use crate::{
-    raw::{self, socklen_t},
-    AddressFamily, Descriptor, Error, Result, SocketAddress, SocketType,
+use crate::{AddressFamily, Descriptor, Error, Result, SocketAddress, SocketType};
+use raw::{
+    sys::socket::{recv, recvfrom, send, sendto, socket, socklen_t},
+    unistd::close,
 };
 use std::{
     ffi::c_int,
     mem::{size_of, MaybeUninit},
 };
 
-/// A socket created with a call to [`raw::socket`]
+/// A socket created with a call to [`socket`]
 #[derive(PartialEq, Eq)]
 pub struct Socket {
     handle: c_int,
@@ -24,9 +25,9 @@ impl Socket {
     /// Returns a new [`Socket`] on success or the error that occurred while trying to create it.
     ///
     /// ## Remarks
-    /// See [`raw::socket`] for more information on this function
+    /// See [`socket`] for more information on this function
     pub fn new(domain: AddressFamily, r#type: SocketType, protocol: i32) -> Result<Self> {
-        let handle = unsafe { raw::socket(domain as c_int, r#type as c_int, protocol) };
+        let handle = unsafe { socket(domain as c_int, r#type as c_int, protocol) };
         if handle == -1 {
             Err(Error::errno())
         } else {
@@ -38,16 +39,16 @@ impl Socket {
     ///
     /// ## Parameters
     ///  * `buffer` - The data to send
-    ///  * `flags` - The set of flags used for this message. See [`raw::send`] for more info.
+    ///  * `flags` - The set of flags used for this message. See [`send`] for more info.
     ///
     /// ## Return Value
     /// Returns the number of bytes sent on success or the error that occurred while trying to
     /// send.
     ///
     /// ## Remarks
-    /// See [`raw::send`] for more information on this function
+    /// See [`send`] for more information on this function
     pub fn send(&self, buffer: &[u8], flags: i32) -> Result<usize> {
-        let result = unsafe { raw::send(self.handle, buffer.as_ptr().cast(), buffer.len(), flags) };
+        let result = unsafe { send(self.handle, buffer.as_ptr().cast(), buffer.len(), flags) };
         if result == -1 {
             Err(Error::errno())
         } else {
@@ -59,7 +60,7 @@ impl Socket {
     ///
     /// ## Parameters
     ///  * `buffer` - The data to send
-    ///  * `flags` - The set of flags used for this message. See [`raw::sendto`] for more info.
+    ///  * `flags` - The set of flags used for this message. See [`sendto`] for more info.
     ///  * `address` - The target to send this message to
     ///
     /// ## Return Value
@@ -67,7 +68,7 @@ impl Socket {
     /// send.
     ///
     /// ## Remarks
-    /// See [`raw::sendto`] for more information on this function
+    /// See [`sendto`] for more information on this function
     pub fn send_to<S: SocketAddress>(
         &self,
         buffer: &[u8],
@@ -75,7 +76,7 @@ impl Socket {
         address: &S,
     ) -> Result<usize> {
         let result = unsafe {
-            raw::sendto(
+            sendto(
                 self.handle,
                 buffer.as_ptr().cast(),
                 buffer.len(),
@@ -95,17 +96,16 @@ impl Socket {
     ///
     /// ## Parameters
     ///  * `buffer` - The buffer for the message to be read into
-    ///  * `flags` - The set of flags used for this message. See [`raw::recv`] for more info.
+    ///  * `flags` - The set of flags used for this message. See [`recv`] for more info.
     ///
     /// ## Return Value
     /// Returns the number of received read on success or the error that occurred while trying to
     /// recieve.
     ///
     /// ## Remarks
-    /// See [`raw::recv`] for more information on this function
+    /// See [`recv`] for more information on this function
     pub fn recv(&self, buffer: &mut [u8], flags: i32) -> Result<usize> {
-        let result =
-            unsafe { raw::recv(self.handle, buffer.as_mut_ptr().cast(), buffer.len(), flags) };
+        let result = unsafe { recv(self.handle, buffer.as_mut_ptr().cast(), buffer.len(), flags) };
         if result == -1 {
             Err(Error::errno())
         } else {
@@ -117,14 +117,14 @@ impl Socket {
     ///
     /// ## Parameters
     ///  * `buffer` - The buffer for the message to be read into
-    ///  * `flags` - The set of flags used for this message. See [`raw::recv`] for more info.
+    ///  * `flags` - The set of flags used for this message. See [`recvfrom`] for more info.
     ///
     /// ## Return Value
     /// Returns the number of received read on success or the error that occurred while trying to
     /// recieve.
     ///
     /// ## Remarks
-    /// See [`raw::recv`] for more information on this function
+    /// See [`recvfrom`] for more information on this function
     pub fn recv_from<S: SocketAddress>(
         &self,
         buffer: &mut [u8],
@@ -133,7 +133,7 @@ impl Socket {
         let mut size = 0;
         let mut address = MaybeUninit::uninit();
         let result = unsafe {
-            raw::recvfrom(
+            recvfrom(
                 self.handle,
                 buffer.as_mut_ptr().cast(),
                 buffer.len(),
@@ -166,6 +166,6 @@ impl Descriptor for Socket {
 
 impl Drop for Socket {
     fn drop(&mut self) {
-        unsafe { raw::close(self.handle) };
+        unsafe { close(self.handle) };
     }
 }
