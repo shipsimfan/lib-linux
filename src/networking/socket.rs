@@ -1,6 +1,6 @@
 use crate::{AddressFamily, Descriptor, Error, Result, SocketAddress, SocketType};
 use raw::{
-    sys::socket::{bind, recv, recvfrom, send, sendto, socket, socklen_t},
+    sys::socket::{bind, listen, recv, recvfrom, send, sendto, socket, socklen_t},
     unistd::close,
 };
 use std::{
@@ -40,6 +40,17 @@ impl Socket {
     /// See [`bind`] for more information on this function
     pub fn bind<A: SocketAddress>(&self, address: &A) -> Result<()> {
         if unsafe { bind(self.handle, address.as_sockaddr_ptr(), A::SIZE) } == -1 {
+            Err(Error::errno())
+        } else {
+            Ok(())
+        }
+    }
+
+    /// Sets this socket to be passive and able to accept connections
+    ///
+    /// See [`listen`] for more information on this function
+    pub fn listen(&self, backlog: i32) -> Result<()> {
+        if unsafe { listen(self.handle, backlog) } == -1 {
             Err(Error::errno())
         } else {
             Ok(())
