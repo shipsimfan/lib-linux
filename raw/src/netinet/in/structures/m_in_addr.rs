@@ -10,6 +10,12 @@ pub struct in_addr {
     pub addr: in_addr_t,
 }
 
+impl Default for in_addr {
+    fn default() -> Self {
+        in_addr { addr: 0 }
+    }
+}
+
 impl From<Ipv4Addr> for in_addr {
     fn from(value: Ipv4Addr) -> Self {
         in_addr { addr: value.into() }

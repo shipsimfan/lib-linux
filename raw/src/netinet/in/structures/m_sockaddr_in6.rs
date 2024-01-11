@@ -26,6 +26,18 @@ pub struct sockaddr_in6 {
     pub scope_id: u32,
 }
 
+impl Default for sockaddr_in6 {
+    fn default() -> Self {
+        sockaddr_in6 {
+            family: AF_INET6 as c_ushort,
+            port: 0,
+            flow_info: 0,
+            addr: in6_addr::default(),
+            scope_id: 0,
+        }
+    }
+}
+
 impl From<SocketAddrV6> for sockaddr_in6 {
     fn from(value: SocketAddrV6) -> Self {
         sockaddr_in6 {

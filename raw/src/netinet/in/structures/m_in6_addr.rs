@@ -9,6 +9,12 @@ pub struct in6_addr {
     pub addr: [u8; 16],
 }
 
+impl Default for in6_addr {
+    fn default() -> Self {
+        in6_addr { addr: [0; 16] }
+    }
+}
+
 impl From<Ipv6Addr> for in6_addr {
     fn from(value: Ipv6Addr) -> Self {
         in6_addr {

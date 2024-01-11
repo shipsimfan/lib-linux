@@ -25,6 +25,17 @@ pub struct sockaddr_in {
     pub zero: [u8; PADDING_SIZE],
 }
 
+impl Default for sockaddr_in {
+    fn default() -> Self {
+        sockaddr_in {
+            family: AF_INET as c_ushort,
+            port: 0,
+            addr: in_addr::default(),
+            zero: [0; PADDING_SIZE],
+        }
+    }
+}
+
 impl From<SocketAddrV4> for sockaddr_in {
     fn from(value: SocketAddrV4) -> Self {
         sockaddr_in {
