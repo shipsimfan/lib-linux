@@ -7,9 +7,11 @@ use crate::{
     errno::errno,
     sys::socket::{
         MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT, MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB,
-        SOCK_SEQPACKET, SOCK_STREAM,
+        SOCK_DGRAM, SOCK_RAW, SOCK_SEQPACKET, SOCK_STREAM,
     },
 };
+#[allow(unused_imports)]
+use std::ptr::null;
 
 extern "C" {
     /// sendto - send a message on a socket

@@ -5,8 +5,8 @@ use core::ffi::{c_int, c_size_t, c_ssize_t, c_void};
 use crate::{
     errno::errno,
     sys::socket::{
-        MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT, MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB,
-        SOCK_SEQPACKET, SOCK_STREAM,
+        sendto, MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT, MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB,
+        SOCK_DGRAM, SOCK_RAW, SOCK_SEQPACKET, SOCK_STREAM,
     },
 };
 

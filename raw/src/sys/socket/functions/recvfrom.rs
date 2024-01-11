@@ -4,7 +4,9 @@ use core::ffi::{c_int, c_size_t, c_ssize_t, c_void};
 #[allow(unused_imports)]
 use crate::{
     errno::errno,
-    sys::socket::{MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL},
+    sys::socket::{
+        AF_PACKET, AF_UNSPEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
+    },
 };
 #[allow(unused_imports)]
 use std::ptr::null;

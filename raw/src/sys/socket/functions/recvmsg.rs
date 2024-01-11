@@ -6,7 +6,8 @@ use core::ffi::{c_int, c_ssize_t};
 use crate::{
     errno::errno,
     sys::socket::{
-        MSG_CMSG_CLOEXEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
+        sockaddr, AF_PACKET, AF_UNSPEC, MSG_CMSG_CLOEXEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB,
+        MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
     },
 };
 #[allow(unused_imports)]
