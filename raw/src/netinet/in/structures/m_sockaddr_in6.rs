@@ -1,5 +1,5 @@
 use crate::netinet::r#in::{in6_addr, in_port_t};
-use std::ffi::c_ushort;
+use std::{ffi::c_ushort, net::SocketAddrV6};
 
 // rustdoc imports
 #[allow(unused_imports)]
@@ -24,4 +24,22 @@ pub struct sockaddr_in6 {
 
     /// IPv6 scope-id
     pub scope_id: u32,
+}
+
+impl From<SocketAddrV6> for sockaddr_in6 {
+    fn from(value: SocketAddrV6) -> Self {
+        sockaddr_in6 {
+            family: AF_INET6 as c_ushort,
+            port: value.port(),
+            flow_info: value.flowinfo(),
+            addr: (*value.ip()).into(),
+            scope_id: value.scope_id(),
+        }
+    }
+}
+
+impl Into<SocketAddrV6> for sockaddr_in6 {
+    fn into(self) -> SocketAddrV6 {
+        SocketAddrV6::new(self.addr.into(), self.port, self.flow_info, self.scope_id)
+    }
 }

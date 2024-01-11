@@ -1,8 +1,5 @@
-use raw::{
-    linux::netlink::sockaddr_nl,
-    netinet::r#in::{sockaddr_in, sockaddr_in6},
-    sys::socket::{sockaddr, socklen_t, AF_INET, AF_INET6, AF_NETLINK, AF_UNSPEC},
-};
+use crate::{IPv4SocketAddress, IPv6SocketAddress, NetLinkSocketAddress};
+use raw::sys::socket::{sockaddr, socklen_t, AF_INET, AF_INET6, AF_NETLINK};
 
 /// A socket address type
 pub trait SocketAddress: Sized {
@@ -26,16 +23,7 @@ pub trait SocketAddress: Sized {
     }
 }
 
-impl SocketAddress for sockaddr {
-    const FAMILY: u16 = AF_UNSPEC as u16;
-    const SIZE: socklen_t = std::mem::size_of::<Self>() as u32;
-
-    fn family(&self) -> u16 {
-        self.family
-    }
-}
-
-impl SocketAddress for sockaddr_in {
+impl SocketAddress for IPv4SocketAddress {
     const FAMILY: u16 = AF_INET as u16;
     const SIZE: socklen_t = std::mem::size_of::<Self>() as u32;
 
@@ -44,7 +32,7 @@ impl SocketAddress for sockaddr_in {
     }
 }
 
-impl SocketAddress for sockaddr_in6 {
+impl SocketAddress for IPv6SocketAddress {
     const FAMILY: u16 = AF_INET6 as u16;
     const SIZE: socklen_t = std::mem::size_of::<Self>() as u32;
 
@@ -53,7 +41,7 @@ impl SocketAddress for sockaddr_in6 {
     }
 }
 
-impl SocketAddress for sockaddr_nl {
+impl SocketAddress for NetLinkSocketAddress {
     const FAMILY: u16 = AF_NETLINK as u16;
     const SIZE: socklen_t = std::mem::size_of::<Self>() as u32;
 
