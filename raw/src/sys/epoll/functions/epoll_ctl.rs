@@ -8,7 +8,6 @@ use crate::errno::errno;
 extern "C" {
     /// epoll_ctl - control interface for an epoll descriptor
     ///
-    /// # Description
     /// This system call performs control operations on the epoll instance referred to by the file
     /// descriptor `epfd`. It requests that the operation `op` be performed for the target file
     /// descriptor, `fd`.
