@@ -20,7 +20,7 @@ extern "C" {
     /// # socket
     /// Create an endpoint for communication
     ///
-    /// ## Description
+    /// # Description
     /// [`socket`] creates an endpoint for communication and returns a file descriptor that refers
     /// to that endpoint. The file descriptor returned by a successful call will be the
     /// lowest-numbered file descriptor not currently open for the process.
@@ -147,7 +147,7 @@ extern "C" {
     /// in <sys/socket.h>. The functions [`setsockopt`] and [`getsockopt`] are used to set and get
     /// options.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, a file descriptor for the new socket is returned. On error, -1 is returned and
     /// [`errno`] is set to indicate the error.
     pub fn socket(domain: c_int, r#type: c_int, protocol: c_int) -> c_int;

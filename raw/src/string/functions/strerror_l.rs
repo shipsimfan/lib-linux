@@ -8,7 +8,7 @@ use crate::errno::errno;
 extern "C" {
     /// strerror_l - return string describing error number
     ///
-    /// ## Description
+    /// # Description
     /// The [`strerror`] function returns a pointer to a string that describes the error code
     /// passed in the argument `errnum`, possibly using the [`LC_MESSAGES`] part of the current
     /// locale to select the appropriate language. (For example, if errnum is [`EINVAL`], the
@@ -20,6 +20,6 @@ extern "C" {
     /// the locale specified by locale. The behavior of [`strerror_l`] is undefined if locale is
     /// the special locale object [`LC_GLOBAL_LOCALE`] or is not a valid locale object handle.
     ///
-    /// ## Return Value
+    /// # Return Value
     pub fn strerror_l(err_num: c_int, local: locale_t) -> *mut c_char;
 }

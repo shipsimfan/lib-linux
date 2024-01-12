@@ -17,7 +17,7 @@ use std::ptr::null;
 extern "C" {
     /// newlocale - create and modify a locale object
     ///
-    /// ## Description
+    /// # Description
     /// The [`newlocale`] function creates a new locale object, or modifies an existing object,
     /// returning a reference to the new or modified object as the function result. Whether the
     /// call creates a new object or modifies an existing object is determined by the value of
@@ -64,7 +64,7 @@ extern "C" {
     ///  * "" - An implementation-defined native environment corresponding to the values of the
     ///         `LC_*` and `LANG` environment variables.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, [`newlocale`] returns a handle that can be used in calls to [`duplocale`],
     /// [`freelocale`], and other functions that take a [`locale_t`] argument.  On error,
     /// [`newlocale`] returns [`null`], and sets [`errno`] to indicate the error.

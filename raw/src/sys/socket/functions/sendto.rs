@@ -16,7 +16,7 @@ use std::ptr::null;
 extern "C" {
     /// sendto - send a message on a socket
     ///
-    /// ## Description
+    /// # Description
     /// The [`sendto`] system call is used to transmit a message to another socket.
     ///
     /// The argument `sockfd` is the file descriptor of the sending socket.
@@ -69,7 +69,7 @@ extern "C" {
     ///                  [`SOCK_STREAM`]); the underlying protocol must also support out-of-band
     ///                  data.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, these calls return the number of characters sent. On error, -1 is returned, and
     /// [`errno`] is set appropriately.
     pub fn sendto(

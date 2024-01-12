@@ -10,7 +10,7 @@ extern "C" {
 
 /// errno - number of last error
 ///
-/// ## Description
+/// # Description
 /// The <errno.h> header file defines the integer variable [`errno`], which is set by system calls
 /// and some library functions in the event of an error to indicate what went wrong.
 ///

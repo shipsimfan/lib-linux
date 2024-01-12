@@ -13,7 +13,7 @@ use crate::{
 extern "C" {
     /// send - send a message on a socket
     ///
-    /// ## Description
+    /// # Description
     /// The [`send`] system call is used to transmit a message to another socket.
     ///
     /// The [`send`] call may be used only when the socket is in a connected state (so that the
@@ -72,7 +72,7 @@ extern "C" {
     ///                  [`SOCK_STREAM`]); the underlying protocol must also support out-of-band
     ///                  data.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, these calls return the number of characters sent. On error, -1 is returned, and
     /// [`errno`] is set appropriately.
     pub fn send(sockfd: c_int, buf: *const c_void, len: c_size_t, flags: c_int) -> c_ssize_t;

@@ -11,7 +11,7 @@ use crate::{
 extern "C" {
     /// bind - bind a name to a socket
     ///
-    /// ## Description
+    /// # Description
     /// When a socket is created with [`socket`], it exists in a name space (address family) but
     /// has no address assigned to it. [`bind`] assigns the address specified by `addr` to the
     /// socket referred to by the file descriptor `sockfd`. `addrlen` specifies the size, in bytes,
@@ -24,7 +24,7 @@ extern "C" {
     /// The rules used in name binding vary between address families. The actual structure passed
     /// for the addr argument will depend on the address family.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, zero is returned. On error, -1 is returned, and [`errno`] is set to indicate
     /// the error.
     pub fn bind(sockfd: c_int, addr: *const sockaddr, addrlen: socklen_t) -> c_int;

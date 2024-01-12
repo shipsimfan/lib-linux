@@ -15,7 +15,7 @@ use std::ptr::null;
 extern "C" {
     /// recv - receive a message from a socket
     ///
-    /// ## Description
+    /// # Description
     /// The [`recv`] call is normally used only on a connected socket (see [`connect`]) and is
     /// identical to [`recvfrom`] with a [`null`] `src_addr` argument.
     ///
@@ -78,7 +78,7 @@ extern "C" {
     ///                      if a signal is caught, an error or disconnect occurs, or the next data
     ///                      to be received is of a different type than that returned.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// These calls return the number of bytes received, or -1 if an error occurred. The return
     /// value will be 0 when the peer has performed an orderly shutdown.
     pub fn recv(sockfd: c_int, buf: *mut c_void, len: c_size_t, flags: c_int) -> c_ssize_t;

@@ -16,15 +16,15 @@ pub struct Locale {
 impl Locale {
     /// Creates a new [`Locale`]
     ///
-    /// ## Parameters
+    /// # Parameters
     ///  * `category_mask` - A bitwise OR of `LC_*_MASK` values
     ///  * `locale` - A string representing the requested locale
     ///  * `base` - A locale to extend from
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns a new [`Locale`] on success or the error that occurred while trying to create it.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`newlocale`] for more information on this function
     pub fn new(category_mask: i32, locale: &CStr, base: Option<&Locale>) -> Result<Self> {
         let inner = unsafe {

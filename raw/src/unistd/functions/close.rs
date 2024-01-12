@@ -7,7 +7,7 @@ use crate::errno::errno;
 extern "C" {
     /// close - close a file descriptor
     ///
-    /// ## Description
+    /// # Description
     /// [`close`] closes a file descriptor, so that it no longer refers to any file and may be
     /// reused. Any record locks (see [`fcntl`]) held on the file it was associated with, and owned
     /// by the process, are removed (regardless of the file descriptor that was used to obtain the
@@ -18,7 +18,7 @@ extern "C" {
     /// descriptor was the last reference to a file which has been removed using [`unlink`], the
     /// file is deleted.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// [`close`] returns zero on success. On error, -1 is returned, and [`errno`] is set to
     /// indicate the error.
     pub fn close(fd: c_int) -> c_int;

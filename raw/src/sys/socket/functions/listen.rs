@@ -10,7 +10,7 @@ use crate::{
 extern "C" {
     /// listen - listen for connections on a socket
     ///
-    /// ## Description
+    /// # Description
     /// [`listen`] marks the socket referred to by `sockfd` as a passive socket, that is, as a
     /// socket that will be used to accept incoming connection requests using [`accept`].
     ///
@@ -23,7 +23,7 @@ extern "C" {
     /// supports retransmission, the request may be ignored so that a later reattempt at connection
     /// succeeds.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, zero is returned. On error, -1 is returned, and [`errno`] is set to indicate
     /// the error.
     pub fn listen(sockfd: c_int, backlog: c_int) -> c_int;

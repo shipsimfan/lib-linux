@@ -17,14 +17,14 @@ pub struct Socket {
 impl Socket {
     /// Creates a new [`Socket`]
     ///
-    /// ## Paramters
+    /// # Paramters
     ///  * `r#type` - The [`SocketType`] that the socket will act as.
     ///  * `protocol` - The protocol for this socket to operate on, usually the only option is 0.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns a new [`Socket`] on success or the error that occurred while trying to create it.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`socket`] for more information on this function
     pub fn new(domain: AddressFamily, r#type: SocketType, protocol: i32) -> Result<Self> {
         let handle = unsafe { socket(domain as c_int, r#type as c_int, protocol) };
@@ -59,15 +59,15 @@ impl Socket {
 
     /// Sends a message on this socket
     ///
-    /// ## Parameters
+    /// # Parameters
     ///  * `buffer` - The data to send
     ///  * `flags` - The set of flags used for this message. See [`send`] for more info.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns the number of bytes sent on success or the error that occurred while trying to
     /// send.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`send`] for more information on this function
     pub fn send(&self, buffer: &[u8], flags: i32) -> Result<usize> {
         let result = unsafe { send(self.handle, buffer.as_ptr().cast(), buffer.len(), flags) };
@@ -80,16 +80,16 @@ impl Socket {
 
     /// Sends a message to a target on this socket
     ///
-    /// ## Parameters
+    /// # Parameters
     ///  * `buffer` - The data to send
     ///  * `flags` - The set of flags used for this message. See [`sendto`] for more info.
     ///  * `address` - The target to send this message to
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns the number of bytes sent on success or the error that occurred while trying to
     /// send.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`sendto`] for more information on this function
     pub fn send_to<S: SocketAddress>(
         &self,
@@ -116,15 +116,15 @@ impl Socket {
 
     /// Receives a message on this socket
     ///
-    /// ## Parameters
+    /// # Parameters
     ///  * `buffer` - The buffer for the message to be read into
     ///  * `flags` - The set of flags used for this message. See [`recv`] for more info.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns the number of received read on success or the error that occurred while trying to
     /// recieve.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`recv`] for more information on this function
     pub fn recv(&self, buffer: &mut [u8], flags: i32) -> Result<usize> {
         let result = unsafe { recv(self.handle, buffer.as_mut_ptr().cast(), buffer.len(), flags) };
@@ -137,15 +137,15 @@ impl Socket {
 
     /// Receives a message on this socket
     ///
-    /// ## Parameters
+    /// # Parameters
     ///  * `buffer` - The buffer for the message to be read into
     ///  * `flags` - The set of flags used for this message. See [`recvfrom`] for more info.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// Returns the number of received read on success or the error that occurred while trying to
     /// recieve.
     ///
-    /// ## Remarks
+    /// # Remarks
     /// See [`recvfrom`] for more information on this function
     pub fn recv_from<S: SocketAddress>(
         &self,

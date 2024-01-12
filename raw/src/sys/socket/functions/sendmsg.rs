@@ -14,7 +14,7 @@ use crate::{
 extern "C" {
     /// sendmsg - send a message on a socket
     ///
-    /// ## Description
+    /// # Description
     /// The [`sendmsg`] system call is used to transmit a message to another socket.
     ///
     /// The argument `sockfd` is the file descriptor of the sending socket.
@@ -65,7 +65,7 @@ extern "C" {
     ///                  [`SOCK_STREAM`]); the underlying protocol must also support out-of-band
     ///                  data.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// On success, these calls return the number of characters sent. On error, -1 is returned, and
     /// [`errno`] is set appropriately.
     pub fn sendmsg(sockfd: c_int, msg: *const msghdr, flags: c_int) -> c_ssize_t;

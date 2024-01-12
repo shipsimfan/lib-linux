@@ -1,6 +1,7 @@
 use std::ffi::{c_int, c_void};
 
-/// The object linked to a file descriptor
+/// The [`epoll_event`] structure specifies data that the kernel should save and return when the
+/// corresponding file descriptor becomes ready.
 #[repr(C)]
 #[allow(non_camel_case_types)]
 pub struct epoll_event {

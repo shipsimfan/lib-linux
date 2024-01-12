@@ -16,7 +16,7 @@ use std::ptr::null;
 extern "C" {
     /// recvmsg - receive a message from a socket
     ///
-    /// ## Description
+    /// # Description
     /// The [`recvmsg`] call is used to receive messages from a socket, and may be used to receive
     /// data on a socket whether or not it is connection-oriented.
     ///
@@ -91,7 +91,7 @@ extern "C" {
     ///                      if a signal is caught, an error or disconnect occurs, or the next data
     ///                      to be received is of a different type than that returned.
     ///
-    /// ## Return Value
+    /// # Return Value
     /// These calls return the number of bytes received, or -1 if an error occurred. The return
     /// value will be 0 when the peer has performed an orderly shutdown.
     pub fn recvmsg(sockfd: c_int, msg: *mut msghdr, flags: c_int) -> c_ssize_t;
