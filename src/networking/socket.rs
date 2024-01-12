@@ -35,6 +35,13 @@ impl Socket {
         }
     }
 
+    /// Creates a [`Socket`] from a file descriptor raw handle
+    ///
+    /// SAFETY: `handle` must be a valid file descriptor and it must represent a socket
+    pub const unsafe fn from_raw_handle(handle: c_int) -> Self {
+        Socket { handle }
+    }
+
     /// Binds this socket to `address`
     ///
     /// See [`bind`] for more information on this function
