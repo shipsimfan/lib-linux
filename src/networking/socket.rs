@@ -1,4 +1,4 @@
-use crate::{AddressFamily, Descriptor, Error, Result, SocketAddress, SocketType};
+use crate::{AddressFamily, Descriptor, Error, FromRawHandle, Result, SocketAddress, SocketType};
 use raw::{
     sys::socket::{bind, listen, recv, recvfrom, send, sendto, socket, socklen_t},
     unistd::close,
@@ -33,13 +33,6 @@ impl Socket {
         } else {
             Ok(Socket { handle })
         }
-    }
-
-    /// Creates a [`Socket`] from a file descriptor raw handle
-    ///
-    /// SAFETY: `handle` must be a valid file descriptor and it must represent a socket
-    pub const unsafe fn from_raw_handle(handle: c_int) -> Self {
-        Socket { handle }
     }
 
     /// Binds this socket to `address`
@@ -190,6 +183,12 @@ impl Socket {
 impl Descriptor for Socket {
     unsafe fn as_raw_handle(&self) -> c_int {
         self.handle
+    }
+}
+
+impl FromRawHandle for Socket {
+    unsafe fn from_raw_handle(handle: c_int) -> Self {
+        Socket { handle }
     }
 }
 
