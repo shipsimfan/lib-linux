@@ -1,5 +1,9 @@
 use raw::sys::socket;
 
+// rustdoc imports
+#[allow(unused_imports)]
+use crate::Socket;
+
 /// Socket types used by [`Socket::new`]
 #[repr(i32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
