@@ -1,6 +1,10 @@
 use crate::sys::epoll::epoll_event;
 use std::ffi::c_int;
 
+// rustdoc imports
+#[allow(unused_imports)]
+use crate::{errno::errno, sys::epoll::epoll_ctl};
+
 extern "C" {
     /// epoll_wait - wait for an I/O event on an epoll file descriptor
     ///
@@ -33,6 +37,9 @@ extern "C" {
     /// appear in this mask.
     ///
     /// # Return Value
+    /// On success, [`epoll_wait`] returns the number of file descriptors ready for the requested
+    /// I/O, or zero if no file descriptor became ready during the requested timeout milliseconds.
+    /// On failure, [`epoll_wait`] returns -1 and [`errno`] is set to indicate the error.
     pub fn epoll_wait(
         epfd: c_int,
         events: *mut epoll_event,
