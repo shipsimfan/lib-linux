@@ -1,29 +1,9 @@
-[workspace]
-members = ["raw"]
-
-[workspace.package]
+[package]
+name = "linux"
 version = "0.1.0"
 authors = ["Lance Hart <me@lancehart.ca>"]
 edition = "2021"
-description = "Linux wrapper library"
+description = "Linux raw bindings"
 repository = "https://github.com/shipsimfan/lib-linux"
 license = "GPL-3.0-or-later"
 publish = false
-
-[workspace.dependencies]
-raw.path = "raw"
-
-
-[package]
-name = "linux"
-
-version.workspace = true
-authors.workspace = true
-edition.workspace = true
-description.workspace = true
-repository.workspace = true
-license.workspace = true
-publish.workspace = true
-
-[dependencies]
-raw.workspace = true

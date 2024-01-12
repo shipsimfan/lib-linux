@@ -1,21 +1,21 @@
-//! # lib-linux
+//! # Raw Linux bindings
 //!
-//! A wrapper library for linux functions
+//! The modules are organized like the header files and folders on Linux
 
 #![deny(missing_docs)]
 #![deny(rustdoc::private_intra_doc_links)]
 #![deny(rustdoc::unescaped_backticks)]
 #![deny(rustdoc::redundant_explicit_links)]
 #![warn(rustdoc::broken_intra_doc_links)]
+#![feature(c_size_t)]
 
-mod descriptor;
-mod error;
-mod locale;
-mod networking;
+// Folders
+pub mod linux;
+pub mod netinet;
+pub mod sys;
 
-pub use raw;
-
-pub use descriptor::*;
-pub use error::*;
-pub use locale::*;
-pub use networking::*;
+// Header files
+pub mod errno;
+pub mod locale;
+pub mod string;
+pub mod unistd;
