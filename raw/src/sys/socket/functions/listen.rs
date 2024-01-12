@@ -10,7 +10,6 @@ use crate::{
 extern "C" {
     /// listen - listen for connections on a socket
     ///
-    /// # Description
     /// [`listen`] marks the socket referred to by `sockfd` as a passive socket, that is, as a
     /// socket that will be used to accept incoming connection requests using [`accept`].
     ///

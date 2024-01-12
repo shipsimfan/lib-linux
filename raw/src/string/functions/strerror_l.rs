@@ -8,7 +8,6 @@ use crate::errno::errno;
 extern "C" {
     /// strerror_l - return string describing error number
     ///
-    /// # Description
     /// The [`strerror`] function returns a pointer to a string that describes the error code
     /// passed in the argument `errnum`, possibly using the [`LC_MESSAGES`] part of the current
     /// locale to select the appropriate language. (For example, if errnum is [`EINVAL`], the

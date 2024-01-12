@@ -13,7 +13,6 @@ use crate::{
 extern "C" {
     /// send - send a message on a socket
     ///
-    /// # Description
     /// The [`send`] system call is used to transmit a message to another socket.
     ///
     /// The [`send`] call may be used only when the socket is in a connected state (so that the

@@ -7,7 +7,6 @@ use crate::errno::errno;
 extern "C" {
     /// close - close a file descriptor
     ///
-    /// # Description
     /// [`close`] closes a file descriptor, so that it no longer refers to any file and may be
     /// reused. Any record locks (see [`fcntl`]) held on the file it was associated with, and owned
     /// by the process, are removed (regardless of the file descriptor that was used to obtain the

@@ -16,7 +16,6 @@ use std::ptr::null;
 extern "C" {
     /// recvmsg - receive a message from a socket
     ///
-    /// # Description
     /// The [`recvmsg`] call is used to receive messages from a socket, and may be used to receive
     /// data on a socket whether or not it is connection-oriented.
     ///

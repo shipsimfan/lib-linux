@@ -7,7 +7,6 @@ use crate::{errno::errno, unistd::close};
 extern "C" {
     /// epoll_create - open an epoll file descriptor
     ///
-    /// # Description
     /// [`epoll_create`] creates a new epoll instance. Since Linux 2.6.8, the size argument is
     /// ignored, but must be greater than zero.
     ///

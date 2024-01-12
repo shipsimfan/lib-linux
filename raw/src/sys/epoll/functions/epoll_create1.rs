@@ -7,7 +7,6 @@ use crate::{errno::errno, sys::epoll::epoll_create, unistd::close};
 extern "C" {
     /// epoll_create1 - open an epoll file descriptor
     ///
-    /// # Description
     /// [`epoll_create1`] creates a new epoll instance. If flags is 0, then, other than the fact
     /// that the obsolete size argument is dropped, [`epoll_create1`] is the same as
     /// [`epoll_create`].

@@ -15,7 +15,6 @@ use std::ptr::null;
 extern "C" {
     /// recv - receive a message from a socket
     ///
-    /// # Description
     /// The [`recv`] call is normally used only on a connected socket (see [`connect`]) and is
     /// identical to [`recvfrom`] with a [`null`] `src_addr` argument.
     ///

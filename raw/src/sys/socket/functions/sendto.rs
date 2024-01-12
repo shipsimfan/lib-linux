@@ -16,7 +16,6 @@ use std::ptr::null;
 extern "C" {
     /// sendto - send a message on a socket
     ///
-    /// # Description
     /// The [`sendto`] system call is used to transmit a message to another socket.
     ///
     /// The argument `sockfd` is the file descriptor of the sending socket.

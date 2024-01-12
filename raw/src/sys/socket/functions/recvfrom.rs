@@ -14,7 +14,6 @@ use std::ptr::null;
 extern "C" {
     /// recvfrom - receive a message from a socket
     ///
-    /// # Description
     /// The [`recvfrom`] call is used to receive messages from a socket, and may be used to receive
     /// data on a socket whether or not it is connection-oriented.
     ///
