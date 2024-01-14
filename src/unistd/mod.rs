@@ -2,4 +2,4 @@
 
 mod functions;
 
-pub use functions::close;
+pub use functions::{close, geteuid, getuid};
