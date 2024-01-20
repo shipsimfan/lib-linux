@@ -2,4 +2,4 @@
 
 mod functions;
 
-pub use functions::strerror_l;
+pub use functions::{strerror, strerror_l, strerror_r};
