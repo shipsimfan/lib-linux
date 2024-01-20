@@ -2,11 +2,12 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::{errno::errno, unistd::close};
+use crate::{
+    errno::{errno, EINVAL, EMFILE, ENFILE, ENOMEM},
+    unistd::close,
+};
 
 extern "C" {
-    /// epoll_create - open an epoll file descriptor
-    ///
     /// [`epoll_create`] creates a new epoll instance. Since Linux 2.6.8, the size argument is
     /// ignored, but must be greater than zero.
     ///
@@ -17,7 +18,15 @@ extern "C" {
     /// kernel destroys the instance and releases the associated resources for reuse.
     ///
     /// # Return Value
-    /// On success, these system calls return a file descriptor (a nonnegative integer).  On error,
-    /// -1 is returned, and [`errno`] is set to indicate the error
+    /// On success, [`epoll_create`] returns a file descriptor (a nonnegative integer). On error,
+    /// -1 is returned, and [`errno`] is set to indicate the error.
+    ///
+    /// # Errors
+    ///  * [`EINVAL`] - `size` is not positive.
+    ///  * [`EMFILE`] - The per-process limit on the number of open file descriptors has been
+    ///                 reached.
+    ///  * [`ENFILE`] - The system-wide limit on the total number of open file descriptors has been
+    ///                 reached.
+    ///  * [`ENOMEM`] - There was insufficient memory to create the kernel object.
     pub fn epoll_create(size: c_int) -> c_int;
 }

@@ -19,6 +19,6 @@ extern "C" {
     ///
     /// # Errors
     ///  * [`EINVAL`] - The value of `errnum` is not a valid error number.
-    ///  * [`ERANGE`] - Insufficient storage was supplied to contain the error string
+    ///  * [`ERANGE`] - Insufficient storage was supplied to contain the error string.
     pub fn strerror_r(errnum: c_int, buf: *mut c_char, buflen: c_size_t) -> c_int;
 }

@@ -4,7 +4,7 @@ use std::ffi::{c_char, c_int};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::errno,
+    errno::{errno, EINVAL, ENOENT, ENOMEM},
     locale::{
         freelocale, LC_ADDRESS_MASK, LC_ALL_MASK, LC_COLLATE_MASK, LC_CTYPE_MASK,
         LC_IDENTIFICATION_MASK, LC_MEASUREMENT_MASK, LC_MESSAGES_MASK, LC_MONETARY_MASK,
@@ -15,8 +15,6 @@ use crate::{
 use std::ptr::null;
 
 extern "C" {
-    /// newlocale - create and modify a locale object
-    ///
     /// The [`newlocale`] function creates a new locale object, or modifies an existing object,
     /// returning a reference to the new or modified object as the function result. Whether the
     /// call creates a new object or modifies an existing object is determined by the value of
@@ -67,5 +65,12 @@ extern "C" {
     /// On success, [`newlocale`] returns a handle that can be used in calls to [`duplocale`],
     /// [`freelocale`], and other functions that take a [`locale_t`] argument.  On error,
     /// [`newlocale`] returns [`null`], and sets [`errno`] to indicate the error.
+    ///
+    /// # Errors
+    ///  * [`EINVAL`] - One or more bits in `category_mask` do not correspond to a valid locale
+    ///                 category.
+    ///  * [`EINVAL`] - `locale` is [`null`].
+    ///  * [`ENOENT`] - `locale` is not a string pointer referring to a valid locale.
+    ///  * [`ENOMEM`] - Insufficient memory to create a locale object.
     pub fn newlocale(category_mask: c_int, locale: *const c_char, base: locale_t) -> locale_t;
 }

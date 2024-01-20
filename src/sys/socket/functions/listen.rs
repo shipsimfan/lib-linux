@@ -3,7 +3,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::errno,
+    errno::{errno, EADDRINUSE, EBADF, ECONNREFUSED, ENOTSOCK, EOPNOTSUPP},
     sys::socket::{SOCK_SEQPACKET, SOCK_STREAM},
 };
 
@@ -25,5 +25,15 @@ extern "C" {
     /// # Return Value
     /// On success, zero is returned. On error, -1 is returned, and [`errno`] is set to indicate
     /// the error.
+    ///
+    /// # Errors
+    ///  * [`EADDRINUSE`] - Another socket is already listening on the same port.
+    ///  * [`EADDRINUSE`] - (Internet domain sockets) The socket referred to by `sockfd` had not
+    ///                     previously been bound to an address and, upon attempting to bind it
+    ///                     to an ephemeral port, it was determined that all port numbers in the
+    ///                     ephemeral port range are currently in use.
+    ///  * [`EBADF`] - The argument `sockfd` is not a valid file descriptor.
+    ///  * [`ENOTSOCK`] - The file descriptor `sockfd` does not refer to a socket.
+    ///  * [`EOPNOTSUPP`] - The socket is not of a type that supports the [`listen`] operation.
     pub fn listen(sockfd: c_int, backlog: c_int) -> c_int;
 }

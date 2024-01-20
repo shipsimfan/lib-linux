@@ -8,11 +8,8 @@ extern "C" {
     fn __errno_location() -> *mut c_int;
 }
 
-/// errno - number of last error
-///
-/// # Description
-/// The <errno.h> header file defines the integer variable [`errno`], which is set by system calls
-/// and some library functions in the event of an error to indicate what went wrong.
+/// The [`crate::errno`] module defines the integer variable [`errno`], which is set by system
+/// calls and some library functions in the event of an error to indicate what went wrong.
 ///
 /// The value in [`errno`] is significant only when the return value of the call indicated an error
 /// (i.e., -1 from most system calls; -1 or [`null`] from most library functions); a function that
