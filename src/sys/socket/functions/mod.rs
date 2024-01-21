@@ -1,3 +1,4 @@
+mod accept;
 mod bind;
 mod listen;
 mod recv;
@@ -8,6 +9,7 @@ mod sendmsg;
 mod sendto;
 mod socket;
 
+pub use accept::accept;
 pub use bind::bind;
 pub use listen::listen;
 pub use recv::recv;
