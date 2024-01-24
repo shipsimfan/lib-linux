@@ -4,6 +4,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{errno, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM},
+    sys::timerfd::{TFD_CLOEXEC, TFD_NONBLOCK},
     time::{CLOCK_MONOTONIC, CLOCK_REALTIME},
 };
 
