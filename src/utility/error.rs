@@ -13,7 +13,7 @@ pub struct Error(c_int);
 macro_rules! try_linux {
     ($expr: expr) => {
         match unsafe { $expr } {
-            -1 => Err($crate::LinuxError::errno()),
+            -1 => Err($crate::Error::errno()),
             result => Ok(result),
         }
     };
