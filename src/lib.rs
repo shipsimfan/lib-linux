@@ -18,4 +18,5 @@ pub mod sys;
 pub mod errno;
 pub mod locale;
 pub mod string;
+pub mod time;
 pub mod unistd;
