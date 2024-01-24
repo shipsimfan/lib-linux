@@ -20,3 +20,7 @@ pub mod locale;
 pub mod string;
 pub mod time;
 pub mod unistd;
+
+// Utilities for easier working with the raw bindings
+mod utility;
+pub use utility::*;
