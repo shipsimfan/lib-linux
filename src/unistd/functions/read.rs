@@ -59,5 +59,7 @@ extern "C" {
     ///              further possible cause of [`EIO`] on networked filesystems is when an advisory
     ///              lock had been taken out on the file descriptor and this lock has been lost.
     ///  * [`EISDIR`] - `fd` refers to a directory.
+    ///
+    /// Other errors may occur, depending on the object connected to `fd`.
     pub fn read(fd: c_int, buf: *mut c_void, count: c_ssize_t) -> c_ssize_t;
 }
