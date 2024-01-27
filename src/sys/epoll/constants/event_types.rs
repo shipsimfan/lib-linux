@@ -1,34 +1,32 @@
-use std::ffi::c_int;
-
 /// Input event type
-pub const EPOLLIN: c_int = 0x001;
+pub const EPOLLIN: u32 = 0x001;
 
 /// Exceptional event type
-pub const EPOLLPRI: c_int = 0x002;
+pub const EPOLLPRI: u32 = 0x002;
 
 /// Output event type
-pub const EPOLLOUT: c_int = 0x004;
+pub const EPOLLOUT: u32 = 0x004;
 
 /// Normal read event type
-pub const EPOLLRDNORM: c_int = 0x040;
+pub const EPOLLRDNORM: u32 = 0x040;
 
 /// Out-of-band read event type
-pub const EPOLLRDBAND: c_int = 0x080;
+pub const EPOLLRDBAND: u32 = 0x080;
 
 /// Normal write event type
-pub const EPOLLWRNORM: c_int = 0x100;
+pub const EPOLLWRNORM: u32 = 0x100;
 
 /// Out-of-band write event type
-pub const EPOLLWRBAND: c_int = 0x200;
+pub const EPOLLWRBAND: u32 = 0x200;
 
 /// Message event type
-pub const EPOLLMSG: c_int = 0x400;
+pub const EPOLLMSG: u32 = 0x400;
 
 /// Error condition event type
-pub const EPOLLERR: c_int = 0x008;
+pub const EPOLLERR: u32 = 0x008;
 
 /// Hang-up event type
-pub const EPOLLHUP: c_int = 0x010;
+pub const EPOLLHUP: u32 = 0x010;
 
 /// Remote hang-up event type
-pub const EPOLLRDHUP: c_int = 0x2000;
+pub const EPOLLRDHUP: u32 = 0x2000;
