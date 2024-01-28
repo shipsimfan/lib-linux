@@ -17,8 +17,8 @@ extern "C" {
     /// The [`send`] system call is used to transmit a message to another socket.
     ///
     /// The [`send`] call may be used only when the socket is in a connected state (so that the
-    /// intended recipient is known). The only difference between [`send`] and [`write`] is the
-    /// presence of flags. With a zero flags argument, [`send`] is equivalent to [`write`]. Also,
+    /// intended recipient is known). The only difference between [`send`] and [`write()`] is the
+    /// presence of flags. With a zero flags argument, [`send`] is equivalent to [`write()`]. Also,
     /// the following call:
     /// ```rust
     /// send(sockfd, buf, len, flags);

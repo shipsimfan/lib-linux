@@ -13,6 +13,7 @@ use crate::{
         O_NDELAY, O_NOATIME, O_NOCTTY, O_NOFOLLOW, O_NONBLOCK, O_PATH, O_RDONLY, O_RDWR, O_SYNC,
         O_TMPFILE, O_TRUNC, O_WRONLY,
     },
+    sys::epoll,
     unistd::{close, read, write},
 };
 
@@ -23,7 +24,7 @@ extern "C" {
     ///
     /// The return value of [`open`] is a file descriptor, a small, nonnegative integer that is an
     /// index to an entry in the process's table of open file descriptors. The file descriptor is
-    /// used in subsequent system calls ([`read`], [`write`], [`lseek`], [`fcntl`], etc.) to refer
+    /// used in subsequent system calls ([`read`], [`write()`], [`lseek`], [`fcntl`], etc.) to refer
     /// to the open file. The file descriptor returned by a successful call will be the
     /// lowest-numbered file descriptor not currently open for the process.
     ///
@@ -51,7 +52,7 @@ extern "C" {
     /// status flags can be retrieved and (in some cases) modified; see [`fcntl`] for details.
     ///
     /// The full list of file creation flags and file status flags is as follows:
-    ///  * [`O_APPEND`] - The file is opened in append mode. Before each [`write`], the file offset
+    ///  * [`O_APPEND`] - The file is opened in append mode. Before each [`write()`], the file offset
     ///                   is positioned at the end of the file, as if with [`lseek`]. The
     ///                   modification of the file offset and the write operation are performed as
     ///                   a single atomic step. [`O_APPEND`] may lead to corrupted files on NFS
@@ -134,10 +135,10 @@ extern "C" {
     ///                     added in Linux 2.1.126, to avoid denial-of-service problems if
     ///                     [`opendir`] is called on a FIFO or tape device.
     ///  * [`O_DSYNC`] - Write operations on the file will complete according to the requirements
-    ///                  of synchronized I/O data integrity completion. By the time [`write`] (and
+    ///                  of synchronized I/O data integrity completion. By the time [`write()`] (and
     ///                  similar) return, the output data has been transferred to the underlying
     ///                  hardware, along with any file metadata that would be required to retrieve
-    ///                  that data (i.e., as though each [`write`] was followed by a call to
+    ///                  that data (i.e., as though each [`write()`] was followed by a call to
     ///                  [`fdatasync`]).
     ///  * [`O_EXCL`] - Ensure that this call creates the file: if this flag is specified in
     ///                 conjunction with [`O_CREAT`], and `pathname` already exists, then [`open`]
@@ -212,7 +213,7 @@ extern "C" {
     ///                                      purposes: to indicate a location in the filesystem
     ///                                      tree and to perform operations that act purely at the
     ///                                      file descriptor level. The file itself is not opened,
-    ///                                      and other file operations (e.g., [`read`], [`write`],
+    ///                                      and other file operations (e.g., [`read`], [`write()`],
     ///                                      [`fchmod`], [`fchown`], [`fgetxattr`], [`ioctl`],
     ///                                      [`mmap`]) fail with the error [`EBADF`]. When
     ///                                      [`O_PATH`] is specified in flags, flag bits other than
@@ -267,9 +268,9 @@ extern "C" {
     ///  * [`O_SYNC`] - Write operations on the file will complete according to the requirements of
     ///                 synchronized I/O file integrity completion (by contrast with the
     ///                 synchronized I/O data integrity completion provided by [`O_DSYNC`].) By the
-    ///                 time [`write`] (or similar) returns, the output data and associated file
+    ///                 time [`write()`] (or similar) returns, the output data and associated file
     ///                 metadata have been transferred to the underlying hardware (i.e., as though
-    ///                 each [`write`] was followed by a call to [`fsync`]).
+    ///                 each [`write()`] was followed by a call to [`fsync`]).
     ///  * [`O_TMPFILE`] (since Linux 3.11) - Create an unnamed temporary regular file. The
     ///                                       `pathname` argument specifies a directory; an unnamed
     ///                                       inode will be created in that directory's filesystem.

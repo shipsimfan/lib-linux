@@ -2,7 +2,11 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EBADF, EDQUOT, EINTR, EIO, ENOSPC};
+use crate::{
+    errno::{errno, EBADF, EDQUOT, EINTR, EIO, ENOSPC},
+    fcntl::open,
+    unistd::write,
+};
 
 extern "C" {
     /// [`close`] closes a file descriptor, so that it no longer refers to any file and may be
@@ -25,7 +29,7 @@ extern "C" {
     ///  * [`EIO`] - An I/O error occurred.
     ///  * [`ENOSPC`], [`EDQUOT`] - On NFS, these errors are not normally reported against the
     ///                             first write which exceeds the available storage space, but
-    ///                             instead against a subsequent [`write`], [`fsync`], or
+    ///                             instead against a subsequent [`write()`], [`fsync`], or
     ///                             [`close`].
     pub fn close(fd: c_int) -> c_int;
 }

@@ -105,7 +105,7 @@ extern "C" {
     /// Sockets of type [`SOCK_STREAM`] are full-duplex byte streams. They do not preserve record
     /// boundaries. A stream socket must be in a connected state before any data may be sent or
     /// received on it. A connection to another socket is created with a [`connect`] call. Once
-    /// connected, data may be transferred using [`read`] and [`write`] calls or some variant of
+    /// connected, data may be transferred using [`read`] and [`write()`] calls or some variant of
     /// the [`send`] and [`recv`] calls. When a session has been completed a [`close`] may be
     /// performed. Out-of-band data may also be transmitted as described in [`send`] and received
     /// as described in [`recv`].

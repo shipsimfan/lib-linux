@@ -5,6 +5,7 @@ use std::ffi::{c_int, c_void};
 #[allow(unused_imports)]
 use crate::{
     errno::{errno, EAGAIN, EBADF, EFAULT, EINTR, EINVAL, EIO, EISDIR, EWOULDBLOCK},
+    fcntl::{open, O_DIRECT, O_NONBLOCK},
     sys::timerfd::timerfd_create,
 };
 

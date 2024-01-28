@@ -37,7 +37,7 @@ extern "C" {
     /// together zero or more event types, returned by [`epoll_wait`], and input flags, which
     /// affect its behaviour, but aren't returned. The available event types are:
     ///  * [`EPOLLIN`] - The associated file is available for [`read`] operations.
-    ///  * [`EPOLLOUT`] - The associated file is available for [`write`] operations.
+    ///  * [`EPOLLOUT`] - The associated file is available for [`write()`] operations.
     ///  * [`EPOLLRDHUP`] - Stream socket peer closed connection, or shut down writing half of
     ///                     connection. (This flag is especially useful forwriting simple code to
     ///                     detect peer shutdown when usingedge-triggered monitoring.)
