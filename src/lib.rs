@@ -16,6 +16,7 @@ pub mod sys;
 
 // Header files
 pub mod errno;
+pub mod fcntl;
 pub mod locale;
 pub mod string;
 pub mod time;
