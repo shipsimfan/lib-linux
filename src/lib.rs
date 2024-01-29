@@ -15,9 +15,11 @@ pub mod netinet;
 pub mod sys;
 
 // Header files
+pub mod aio;
 pub mod errno;
 pub mod fcntl;
 pub mod locale;
+pub mod signal;
 pub mod string;
 pub mod time;
 pub mod unistd;
