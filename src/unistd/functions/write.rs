@@ -9,7 +9,7 @@ use crate::{
         EPERM, EPIPE, EWOULDBLOCK,
     },
     fcntl::{open, O_APPEND, O_DIRECT, O_NONBLOCK},
-    unistd::read,
+    unistd::{fsync, read},
 };
 
 extern "C" {

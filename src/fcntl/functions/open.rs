@@ -14,7 +14,7 @@ use crate::{
         O_TMPFILE, O_TRUNC, O_WRONLY,
     },
     sys::epoll,
-    unistd::{close, read, write},
+    unistd::{close, fdatasync, fsync, read, write},
 };
 
 extern "C" {

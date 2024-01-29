@@ -6,7 +6,7 @@ use core::ffi::c_ssize_t;
 use crate::{
     aio::aio_error,
     errno::{errno, EINPROGRESS},
-    unistd::{read, write},
+    unistd::{fdatasync, fsync, read, write},
 };
 
 #[link(name = "rt")]

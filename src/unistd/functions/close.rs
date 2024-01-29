@@ -5,7 +5,7 @@ use std::ffi::c_int;
 use crate::{
     errno::{errno, EBADF, EDQUOT, EINTR, EIO, ENOSPC},
     fcntl::open,
-    unistd::write,
+    unistd::{fsync, write},
 };
 
 extern "C" {
