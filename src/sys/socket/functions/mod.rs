@@ -1,5 +1,6 @@
 mod accept;
 mod bind;
+mod connect;
 mod listen;
 mod recv;
 mod recvfrom;
@@ -11,6 +12,7 @@ mod socket;
 
 pub use accept::accept;
 pub use bind::bind;
+pub use connect::connect;
 pub use listen::listen;
 pub use recv::recv;
 pub use recvfrom::recvfrom;

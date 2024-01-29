@@ -7,8 +7,8 @@ use crate::{
         errno, EAGAIN, EBADF, ECONNREFUSED, EFAULT, EINTR, EINVAL, ENOTCONN, ENOTSOCK, EWOULDBLOCK,
     },
     sys::socket::{
-        recvfrom, sockaddr, AF_PACKET, AF_UNSPEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB, MSG_PEEK,
-        MSG_TRUNC, MSG_WAITALL,
+        accept, connect, recvfrom, sockaddr, AF_PACKET, AF_UNSPEC, MSG_DONTWAIT, MSG_ERRQUEUE,
+        MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
     },
 };
 #[allow(unused_imports)]

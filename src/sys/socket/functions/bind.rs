@@ -8,7 +8,7 @@ use crate::{
         errno, EACCES, EADDRINUSE, EADDRNOTAVAIL, EBADF, EFAULT, EINVAL, ELOOP, ENAMETOOLONG,
         ENOENT, ENOMEM, ENOTDIR, ENOTSOCK, EROFS,
     },
-    sys::socket::{socket, SOCK_STREAM},
+    sys::socket::{accept, socket, SOCK_STREAM},
 };
 
 extern "C" {

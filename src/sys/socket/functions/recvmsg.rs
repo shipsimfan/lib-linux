@@ -9,8 +9,8 @@ use crate::{
         EWOULDBLOCK,
     },
     sys::socket::{
-        sockaddr, AF_PACKET, AF_UNSPEC, MSG_CMSG_CLOEXEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB,
-        MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
+        accept, connect, sockaddr, AF_PACKET, AF_UNSPEC, MSG_CMSG_CLOEXEC, MSG_DONTWAIT,
+        MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
     },
 };
 #[allow(unused_imports)]

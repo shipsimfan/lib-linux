@@ -4,7 +4,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{errno, EADDRINUSE, EBADF, ECONNREFUSED, ENOTSOCK, EOPNOTSUPP},
-    sys::socket::{SOCK_SEQPACKET, SOCK_STREAM},
+    sys::socket::{accept, SOCK_SEQPACKET, SOCK_STREAM},
 };
 
 extern "C" {

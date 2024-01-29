@@ -9,6 +9,7 @@ use crate::{
         EPERM, EPIPE, EWOULDBLOCK,
     },
     fcntl::{open, O_APPEND, O_DIRECT, O_NONBLOCK},
+    sys::socket::connect,
     unistd::{fsync, read},
 };
 
