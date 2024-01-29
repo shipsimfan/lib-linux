@@ -4,6 +4,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
+    aio::aio_error,
     errno::{errno, EAGAIN, EBADF, EINVAL, ENOSYS, EOVERFLOW},
     unistd::read,
 };
