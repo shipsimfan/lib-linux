@@ -4,7 +4,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    aio::{aio_read, aio_write},
+    aio::{aio_read, aio_write, lio_listio},
     errno::{errno, EAGAIN, EINTR, ENOSYS},
     time::CLOCK_MONOTONIC,
 };
