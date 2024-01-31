@@ -38,10 +38,10 @@ pub struct sigevent {
 #[derive(Clone, Copy)]
 pub union sigval {
     /// Integer value
-    int: c_int,
+    pub int: c_int,
 
     /// Pointer value
-    ptr: *mut c_void,
+    pub ptr: *mut c_void,
 }
 
 impl Default for sigevent {

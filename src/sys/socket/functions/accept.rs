@@ -9,6 +9,7 @@ use crate::{
         ENETDOWN, ENETUNREACH, ENFILE, ENOBUFS, ENOMEM, ENONET, ENOPROTOOPT, ENOTSOCK, EOPNOTSUPP,
         EPERM, EPROTO, EWOULDBLOCK,
     },
+    signal::SIGIO,
     sys::socket::{bind, listen, socket, SOCK_SEQPACKET, SOCK_STREAM},
 };
 #[allow(unused_imports)]

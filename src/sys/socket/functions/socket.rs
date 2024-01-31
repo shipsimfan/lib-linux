@@ -6,6 +6,7 @@ use crate::{
     errno::{
         errno, EACCES, EAFNOSUPPORT, EINVAL, EMFILE, ENFILE, ENOBUFS, ENOMEM, EPROTONOSUPPORT,
     },
+    signal::{SIGIO, SIGPIPE, SIGURG},
     sys::socket::{
         connect, recv, recvfrom, send, sendto, AF_ALG, AF_APPLETALK, AF_ASH, AF_ATMPVC, AF_ATMSVC,
         AF_AX25, AF_BLUETOOTH, AF_BRIDGE, AF_CAIF, AF_CAN, AF_DECNET, AF_ECONET, AF_FILE, AF_IB,

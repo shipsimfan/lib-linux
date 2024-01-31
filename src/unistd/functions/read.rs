@@ -6,6 +6,7 @@ use std::ffi::{c_int, c_void};
 use crate::{
     errno::{errno, EAGAIN, EBADF, EFAULT, EINTR, EINVAL, EIO, EISDIR, EWOULDBLOCK},
     fcntl::{open, O_DIRECT, O_NONBLOCK},
+    signal::SIGTTIN,
     sys::timerfd::timerfd_create,
 };
 
