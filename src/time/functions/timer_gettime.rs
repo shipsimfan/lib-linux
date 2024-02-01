@@ -23,7 +23,7 @@ extern "C" {
     /// indicate the error.
     ///
     /// # Errors
-    /// These functions may fail with the following errors:
+    /// [`timer_gettime`] may fail with the following errors:
     ///  * [`EFAULT`] - `curr_value` is not a valid pointer.
     ///  * [`EINVAL`] - `timerid` is invalid.
     pub fn timer_gettime(timerid: timer_t, curr_value: *mut itimerspec) -> c_int;
