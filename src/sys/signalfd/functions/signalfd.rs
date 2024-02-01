@@ -7,7 +7,10 @@ use crate::{
     errno::{errno, EBADF, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM},
     fcntl::{open, O_CLOEXEC, O_NONBLOCK},
     signal::{SIGKILL, SIGSTOP},
-    sys::epoll,
+    sys::{
+        epoll,
+        signalfd::{SFD_CLOEXEC, SFD_NONBLOCK},
+    },
 };
 
 extern "C" {
