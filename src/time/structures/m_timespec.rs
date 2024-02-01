@@ -12,3 +12,9 @@ pub struct timespec {
     /// Number of nanoseconds
     pub nsec: c_long,
 }
+
+impl Default for timespec {
+    fn default() -> Self {
+        timespec { sec: 0, nsec: 0 }
+    }
+}

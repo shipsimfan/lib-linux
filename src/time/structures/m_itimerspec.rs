@@ -11,3 +11,12 @@ pub struct itimerspec {
     /// The initial expiration
     pub value: timespec,
 }
+
+impl Default for itimerspec {
+    fn default() -> Self {
+        itimerspec {
+            interval: timespec::default(),
+            value: timespec::default(),
+        }
+    }
+}
