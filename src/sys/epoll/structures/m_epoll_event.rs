@@ -28,3 +28,18 @@ pub union epoll_data_t {
     /// As a [`u64`]
     pub u64: u64,
 }
+
+impl Default for epoll_event {
+    fn default() -> Self {
+        epoll_event {
+            events: 0,
+            data: epoll_data_t::default(),
+        }
+    }
+}
+
+impl Default for epoll_data_t {
+    fn default() -> Self {
+        epoll_data_t { u64: 0 }
+    }
+}
