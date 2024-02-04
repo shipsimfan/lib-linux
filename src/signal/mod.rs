@@ -6,6 +6,7 @@ mod structures;
 
 pub use constants::*;
 pub use functions::{
-    pthread_sigmask, sigaction, sigaddset, sigdelset, sigemptyset, sigfillset, sigprocmask,
+    pthread_sigmask, sigaction, sigaddset, sigdelset, sigemptyset, sigfillset, sigismember,
+    sigprocmask,
 };
 pub use structures::{sigaction_handler, sigaction_t, sigevent, siginfo_t, sigset_t, sigval};
