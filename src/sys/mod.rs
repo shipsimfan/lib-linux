@@ -3,6 +3,7 @@
 // Header files
 pub mod epoll;
 pub mod eventfd;
+pub mod mman;
 pub mod signalfd;
 pub mod socket;
 pub mod stat;
