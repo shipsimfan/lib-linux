@@ -6,7 +6,7 @@ use std::ffi::{c_int, c_void};
 use crate::signal::SA_SIGINFO;
 
 /// Structure describing the action to be taken when a signal arrives
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone)]
 pub struct sigaction_t {
@@ -24,7 +24,8 @@ pub struct sigaction_t {
 }
 
 /// Signal handler
-#[repr(C)]
+#[repr(C, packed(8))]
+#[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub union sigaction_handler {
     /// Used if [`SA_SIGINFO`] is not set

@@ -9,7 +9,7 @@ use std::{
 use crate::signal::{SIGEV_SIGNAL, SIGEV_THREAD, SIGEV_THREAD_ID};
 
 /// Structure for notification from asynchronous routines
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone)]
 pub struct sigevent {
@@ -27,7 +27,7 @@ pub struct sigevent {
 }
 
 /// Data passed with notification
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub union sigval {
@@ -38,7 +38,7 @@ pub union sigval {
     pub ptr: *mut c_void,
 }
 
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub union sigevent_union {
@@ -52,7 +52,7 @@ pub union sigevent_union {
     pub thread: sigevent_thread,
 }
 
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct sigevent_thread {

@@ -1,9 +1,9 @@
 use std::ffi::c_ulong;
 
 /// A set of signals to be blocked, unblocked, or waited for
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
-#[derive(Clone)]
+#[derive(Clone, Copy)]
 pub struct sigset_t {
     /// Internal value, should not be accessed from the outside
     _val: [c_ulong; _SIGSET_NWORDS],

@@ -13,7 +13,8 @@ use crate::{
 };
 
 /// The signal information passed to a signal handler
-#[repr(C)]
+
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone)]
 pub struct siginfo_t {
@@ -34,7 +35,7 @@ pub struct siginfo_t {
 }
 
 /// The fields based on `signo`
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub union siginfo_t_fields {
@@ -63,7 +64,7 @@ pub union siginfo_t_fields {
 }
 
 /// [`kill`]
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_kill {
@@ -75,7 +76,7 @@ pub struct siginfo_t_kill {
 }
 
 /// POSIX.1b timers
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_timer {
@@ -90,7 +91,7 @@ pub struct siginfo_t_timer {
 }
 
 /// POSIX.1b signals
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_rt {
@@ -105,7 +106,7 @@ pub struct siginfo_t_rt {
 }
 
 /// [`SIGCHLD`]
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_sigchld {
@@ -126,7 +127,7 @@ pub struct siginfo_t_sigchld {
 }
 
 /// [`SIGILL`], [`SIGFPE`], [`SIGSEGV`], [`SIGBUS`]
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_sigfault {
@@ -141,7 +142,7 @@ pub struct siginfo_t_sigfault {
 }
 
 /// Fault bounds
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub union siginfo_t_sigfault_bounds {
@@ -153,7 +154,7 @@ pub union siginfo_t_sigfault_bounds {
 }
 
 /// Used when `code == SEGV_BNDERR`
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_sigfault_addr_bnd {
@@ -165,7 +166,7 @@ pub struct siginfo_t_sigfault_addr_bnd {
 }
 
 /// [`SIGPOLL`]
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_sigpoll {
@@ -177,7 +178,7 @@ pub struct siginfo_t_sigpoll {
 }
 
 /// [`SIGSYS`]
-#[repr(C)]
+#[repr(C, packed(8))]
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct siginfo_t_sigsys {
