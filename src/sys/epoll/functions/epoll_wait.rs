@@ -50,6 +50,7 @@ extern "C" {
     ///                requested events ocurred or (2) the `timeout` expired.
     ///  * [`EINVAL`] - `epfd` is not an epoll file descriptor, or `maxevents` is less than or
     ///                 equal to zero.
+    #[allow(improper_ctypes)]
     pub fn epoll_wait(
         epfd: c_int,
         events: *mut epoll_event,

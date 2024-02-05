@@ -129,5 +129,6 @@ extern "C" {
     ///                 epoll instance.
     ///  * [`EPERM`] - The target file `fd` does not support epoll.  This error can occur if `fd`
     ///                refers to, for example, a regular file or a directory.
+    #[allow(improper_ctypes)]
     pub fn epoll_ctl(epfd: c_int, op: c_int, fd: c_int, event: *const epoll_event) -> c_int;
 }

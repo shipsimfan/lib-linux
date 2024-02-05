@@ -13,7 +13,7 @@ pub struct epoll_event {
 }
 
 /// The data associated with an object linked to a file descriptor
-#[repr(packed)]
+#[repr(packed(4))]
 #[allow(non_camel_case_types)]
 pub union epoll_data_t {
     /// As a pointer
