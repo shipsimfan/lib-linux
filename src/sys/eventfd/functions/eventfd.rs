@@ -5,6 +5,7 @@ use std::ffi::{c_int, c_uint};
 use crate::{
     errno::{errno, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM},
     fcntl::{open, O_CLOEXEC, O_NONBLOCK},
+    sys::eventfd::{EFD_CLOEXEC, EFD_NONBLOCK, EFD_SEMAPHORE},
 };
 
 extern "C" {
