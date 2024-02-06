@@ -1,6 +1,6 @@
 use crate::sys::{socket::socklen_t, uio::iovec};
 use core::ffi::{c_size_t, c_void};
-use std::ffi::c_int;
+use std::{ffi::c_int, ptr::null_mut};
 
 // rustdoc imports
 #[allow(unused_imports)]
@@ -31,4 +31,18 @@ pub struct msghdr {
 
     /// Flags on received message
     pub msg_flags: c_int,
+}
+
+impl Default for msghdr {
+    fn default() -> Self {
+        msghdr {
+            msg_name: null_mut(),
+            msg_namelen: 0,
+            msg_iov: null_mut(),
+            msg_iovlen: 0,
+            msg_control: null_mut(),
+            msg_controllen: 0,
+            msg_flags: 0,
+        }
+    }
 }

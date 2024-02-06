@@ -1,4 +1,4 @@
-use crate::sys::socket::sa_family_t;
+use crate::sys::socket::{sa_family_t, AF_UNSPEC};
 use std::ffi::c_char;
 
 /// A socket address
@@ -11,4 +11,13 @@ pub struct sockaddr {
 
     /// Socket address
     pub data: [c_char; 14],
+}
+
+impl Default for sockaddr {
+    fn default() -> Self {
+        sockaddr {
+            family: AF_UNSPEC as _,
+            data: [0; 14],
+        }
+    }
 }
