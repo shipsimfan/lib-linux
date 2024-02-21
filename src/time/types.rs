@@ -1,7 +1,11 @@
 use std::{
-    ffi::{c_int, c_long},
+    ffi::{c_int, c_long, c_longlong},
     os::raw::c_void,
 };
+
+#[allow(missing_docs)]
+#[allow(non_camel_case_types)]
+pub type __kernel_time64_t = c_longlong;
 
 /// Used for system time in clock ticks or [`CLOCKS_PER_SEC`]
 #[allow(non_camel_case_types)]
