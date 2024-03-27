@@ -6,7 +6,8 @@ mod types;
 
 pub use constants::*;
 pub use functions::{
-    accept, bind, connect, listen, recv, recvfrom, recvmsg, send, sendmsg, sendto, socket,
+    accept, bind, connect, getsockname, listen, recv, recvfrom, recvmsg, send, sendmsg, sendto,
+    socket,
 };
 pub use structures::{msghdr, sockaddr};
 pub use types::{sa_family_t, socklen_t};
