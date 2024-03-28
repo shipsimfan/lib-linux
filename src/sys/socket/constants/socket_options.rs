@@ -7,8 +7,8 @@ use crate::{
     sys::{
         epoll::epoll_wait,
         socket::{
-            accept, bind, getsockopt, recvmsg, send, sendmsg, AF_INET, AF_INET6, MSG_OOB,
-            SOCK_STREAM,
+            accept, bind, getsockopt, recvmsg, send, sendmsg, setsockopt, AF_INET, AF_INET6,
+            MSG_OOB, SOCK_STREAM,
         },
     },
     unistd::{close, read},

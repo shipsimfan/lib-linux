@@ -5,8 +5,9 @@ use std::ffi::{c_int, c_void};
 #[allow(unused_imports)]
 use crate::{
     errno::{errno, EACCES, EAGAIN, EBADF, EINVAL, ENOBUFS, ENOPROTOOPT, ENOTSOCK, EWOULDBLOCK},
+    netinet::r#in::IPPROTO_TCP,
     sys::socket::{
-        bind, SO_BROADCAST, SO_DEBUG, SO_DONTROUTE, SO_ERROR, SO_KEEPALIVE, SO_LINGER,
+        bind, SOL_SOCKET, SO_BROADCAST, SO_DEBUG, SO_DONTROUTE, SO_ERROR, SO_KEEPALIVE, SO_LINGER,
         SO_OOBINLINE, SO_RCVBUF, SO_RCVLOWAT, SO_RCVTIMEO, SO_REUSEADDR, SO_SNDBUF, SO_SNDLOWAT,
         SO_SNDTIMEO, SO_TYPE,
     },
@@ -40,8 +41,6 @@ extern "C" {
     /// following values defined in [`crate::sys::socket`]:
     ///  * [`SO_DEBUG`] - Reports whether debugging information is being recorded. This option
     ///                   shall store a [`c_int`] value. This is a Boolean option.
-    ///  * [`SO_ACCEPTCONN`] - Reports whether socket listening is enabled. This option shall store
-    ///                   a [`c_int`] value. This is a Boolean option.
     ///  * [`SO_BROADCAST`] - Reports whether transmission of broadcast messages is supported, if
     ///                       this is supported by the protocol. This option shall store a
     ///                       [`c_int`] value. This is a Boolean option.

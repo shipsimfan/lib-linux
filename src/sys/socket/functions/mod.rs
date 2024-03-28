@@ -11,6 +11,7 @@ mod recvmsg;
 mod send;
 mod sendmsg;
 mod sendto;
+mod setsockopt;
 mod socket;
 
 pub use accept::accept;
@@ -26,4 +27,5 @@ pub use recvmsg::recvmsg;
 pub use send::send;
 pub use sendmsg::sendmsg;
 pub use sendto::sendto;
+pub use setsockopt::setsockopt;
 pub use socket::socket;

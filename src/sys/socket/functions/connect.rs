@@ -9,7 +9,9 @@ use crate::{
         ECONNREFUSED, EFAULT, EINPROGRESS, EINTR, EISCONN, ENETUNREACH, ENOTSOCK, EPERM,
         EPROTOTYPE, ETIMEDOUT,
     },
-    sys::socket::{AF_UNSPEC, SOCK_DGRAM, SOCK_SEQPACKET, SOCK_STREAM},
+    sys::socket::{
+        getsockopt, AF_UNSPEC, SOCK_DGRAM, SOCK_SEQPACKET, SOCK_STREAM, SOL_SOCKET, SO_ERROR,
+    },
 };
 
 extern "C" {
