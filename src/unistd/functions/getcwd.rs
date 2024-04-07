@@ -2,7 +2,10 @@ use core::ffi::{c_char, c_size_t};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EACCES, EFAULT, EINVAL, ENOENT, ERANGE};
+use crate::{
+    errno::{errno, EACCES, EFAULT, EINVAL, ENOENT, ERANGE},
+    stdlib::malloc,
+};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
