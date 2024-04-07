@@ -9,10 +9,12 @@ use crate::{
 };
 
 extern "C" {
+    /// Close a file descriptor
+    ///
+    /// # Description
     /// [`close`] closes a file descriptor, so that it no longer refers to any file and may be
-    /// reused. Any record locks (see [`fcntl`]) held on the file it was associated with, and owned
-    /// by the process, are removed (regardless of the file descriptor that was used to obtain the
-    /// lock).
+    /// reused. Any record locks held on the file it was associated with, and owned by the process,
+    /// are removed (regardless of the file descriptor that was used to obtain the lock).
     ///
     /// If `fd` is the last file descriptor referring to the underlying open file description (see
     /// [`open`]), the resources associated with the open file description are freed; if the file

@@ -87,7 +87,7 @@ extern "C" {
     ///              on the file descriptor and this lock has been lost.
     ///  * [`ENOSPC`] - The device containing the file referred to by `fd` has no room for the
     ///                 data.
-    ///  * [`EPERM`] - The operation was prevented by a file seal; see [`fcntl`].
+    ///  * [`EPERM`] - The operation was prevented by a file seal.
     ///  * [`EPIPE`] - `fd` is connected to a pipe or socket whose reading end is closed. When this
     ///                happens the writing process will also receive a [`SIGPIPE`] signal. (Thus,
     ///                the write return value is seen only if the program catches, blocks or

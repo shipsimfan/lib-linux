@@ -19,6 +19,6 @@ pub type clockid_t = c_int;
 #[allow(non_camel_case_types)]
 pub type time_t = c_long;
 
-/// Timer ID returned by `timer_create'
+/// Timer ID returned by `timer_create`
 #[allow(non_camel_case_types)]
 pub type timer_t = *mut c_void;
