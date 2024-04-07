@@ -2,4 +2,4 @@
 
 mod functions;
 
-pub use functions::{calloc, free, malloc};
+pub use functions::{calloc, free, malloc, realloc};

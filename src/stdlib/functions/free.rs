@@ -2,7 +2,7 @@ use std::ffi::c_void;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::stdlib::{calloc, malloc};
+use crate::stdlib::{calloc, malloc, realloc};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
