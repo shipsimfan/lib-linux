@@ -2,6 +2,8 @@ use core::ffi::{c_size_t, c_void};
 
 // rustdoc imports
 #[allow(unused_imports)]
+use crate::stdlib::free;
+#[allow(unused_imports)]
 use std::ptr::null_mut;
 
 extern "C" {

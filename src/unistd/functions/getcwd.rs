@@ -4,7 +4,7 @@ use core::ffi::{c_char, c_size_t};
 #[allow(unused_imports)]
 use crate::{
     errno::{errno, EACCES, EFAULT, EINVAL, ENOENT, ERANGE},
-    stdlib::malloc,
+    stdlib::{free, malloc},
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;
