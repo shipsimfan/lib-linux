@@ -1,5 +1,7 @@
-mod m_chmod;
+mod chmod;
 mod open;
+mod statx;
 
-pub use m_chmod::chmod;
+pub use chmod::chmod;
 pub use open::open;
+pub use statx::statx;
