@@ -29,76 +29,76 @@ use crate::sys::stat::statx;
 #[repr(C)]
 pub struct Statx {
     /// What results were written
-    mask: u32,
+    pub mask: u32,
 
     /// Preferred general I/O size
-    blksize: u32,
+    pub blksize: u32,
 
     /// Flags conveying information about the file
-    attributes: u64,
+    pub attributes: u64,
 
     /// Number of hard links
-    nlink: u32,
+    pub nlink: u32,
 
     /// User ID of owner
-    uid: u32,
+    pub uid: u32,
 
     /// Group ID of owner
-    gid: u32,
+    pub gid: u32,
 
     /// File mode
-    mode: u16,
+    pub mode: u16,
 
     /// Padding
-    spare0: [u16; 1],
+    pub spare0: [u16; 1],
 
     /// Inode number
-    ino: u64,
+    pub ino: u64,
 
     /// File size
-    size: u64,
+    pub size: u64,
 
     /// Number of 512-byte blocks allocated
-    blocks: u64,
+    pub blocks: u64,
 
     /// Mask to show what's supported in `attributes`
-    attributes_mask: u64,
+    pub attributes_mask: u64,
 
     /// Last access time
-    atime: statx_timestamp,
+    pub atime: statx_timestamp,
 
     /// File creation time
-    btime: statx_timestamp,
+    pub btime: statx_timestamp,
 
     /// Last attribute change time
-    ctime: statx_timestamp,
+    pub ctime: statx_timestamp,
 
     /// Last data modification time
-    mtime: statx_timestamp,
+    pub mtime: statx_timestamp,
 
     /// Major number of the device ID of special file
-    rdev_major: u32,
+    pub rdev_major: u32,
 
     /// Minor number of the device ID of special file
-    rdev_minor: u32,
+    pub rdev_minor: u32,
 
     /// Major number of the ID of the device containing file
-    dev_major: u32,
+    pub dev_major: u32,
 
     /// Minor number of the ID of the device containing file
-    dev_minor: u32,
+    pub dev_minor: u32,
 
     /// ID of the mount
-    mnt_id: u64,
+    pub mnt_id: u64,
 
     /// Memory buffer alignment for direct I/O
-    dio_mem_align: u32,
+    pub dio_mem_align: u32,
 
     /// File offset alignment for direct I/O
-    dio_offset_align: u32,
+    pub dio_offset_align: u32,
 
     /// Spare space for future expansion
-    spare3: [u64; 12],
+    pub spare3: [u64; 12],
 }
 
 impl Default for Statx {
