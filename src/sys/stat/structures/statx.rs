@@ -100,3 +100,34 @@ pub struct Statx {
     /// Spare space for future expansion
     spare3: [u64; 12],
 }
+
+impl Default for Statx {
+    fn default() -> Self {
+        Statx {
+            mask: 0,
+            blksize: 0,
+            attributes: 0,
+            nlink: 0,
+            uid: 0,
+            gid: 0,
+            mode: 0,
+            spare0: [0],
+            ino: 0,
+            size: 0,
+            blocks: 0,
+            attributes_mask: 0,
+            atime: statx_timestamp::default(),
+            btime: statx_timestamp::default(),
+            ctime: statx_timestamp::default(),
+            mtime: statx_timestamp::default(),
+            rdev_major: 0,
+            rdev_minor: 0,
+            dev_major: 0,
+            dev_minor: 0,
+            mnt_id: 0,
+            dio_mem_align: 0,
+            dio_offset_align: 0,
+            spare3: [0; 12],
+        }
+    }
+}
