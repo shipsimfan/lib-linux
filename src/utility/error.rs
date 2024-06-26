@@ -43,7 +43,7 @@ impl std::fmt::Display for Error {
         let mut buffer = [0; 64];
 
         let message =
-            unsafe { CStr::from_ptr(strerror_r(self.0, buffer.as_mut_ptr(), buffer.len())) };
+            unsafe { CStr::from_ptr(strerror_r(self.0, buffer.as_mut_ptr(), buffer.len()) as _) };
 
         write!(f, "{}", message.to_string_lossy())
     }
