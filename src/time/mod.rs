@@ -12,4 +12,4 @@ pub use functions::{
 };
 pub use statics::{daylight, timezone, tzname};
 pub use structures::{__kernel_timespec, itimerspec, timespec};
-pub use types::{__kernel_time64_t, clock_t, clockid_t, time_t, timer_t};
+pub use types::{__kernel_time64_t, clock_t, clockid_t, suseconds_t, time_t, timer_t};
