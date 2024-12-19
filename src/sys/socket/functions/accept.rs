@@ -86,5 +86,5 @@ extern "C" {
     ///  * [`EOPNOTSUPP`] - The referenced socket is not of type [`SOCK_STREAM`].
     ///  * [`EPERM`] -  Firewall rules forbid connection.
     ///  * [`EPROTO`] - Protocol error.
-    pub fn accept(sockfd: c_int, addr: *mut sockaddr, addrlen: socklen_t) -> c_int;
+    pub fn accept(sockfd: c_int, addr: *mut sockaddr, addrlen: *mut socklen_t) -> c_int;
 }
