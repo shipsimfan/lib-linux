@@ -5,8 +5,8 @@ use std::ffi::c_int;
 use crate::{
     errno::EINVAL,
     fcntl::{
-        open, O_APPEND, O_ASYNC, O_CLOEXEC, O_CREAT, O_DIRECT, O_DSYNC, O_EXCL, O_NOATIME,
-        O_NOCTTY, O_NONBLOCK, O_RDONLY, O_RDWR, O_SYNC, O_TRUNC, O_WRONLY,
+        open, F_GETFL, F_SETFL, O_APPEND, O_ASYNC, O_CLOEXEC, O_CREAT, O_DIRECT, O_DSYNC, O_EXCL,
+        O_NOATIME, O_NOCTTY, O_NONBLOCK, O_RDONLY, O_RDWR, O_SYNC, O_TRUNC, O_WRONLY,
     },
 };
 #[allow(unused_imports)]
