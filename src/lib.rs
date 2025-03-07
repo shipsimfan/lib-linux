@@ -8,6 +8,7 @@
 #![deny(rustdoc::redundant_explicit_links)]
 #![warn(rustdoc::broken_intra_doc_links)]
 #![feature(c_size_t)]
+#![feature(ip_from)]
 
 // Folders
 pub mod linux;
