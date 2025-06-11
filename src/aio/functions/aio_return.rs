@@ -1,5 +1,4 @@
-use crate::aio::aiocb;
-use core::ffi::c_ssize_t;
+use crate::{aio::aiocb, c_ssize_t};
 
 // rustdoc imports
 #[allow(unused_imports)]

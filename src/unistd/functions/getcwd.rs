@@ -1,4 +1,5 @@
-use core::ffi::{c_char, c_size_t};
+use crate::c_size_t;
+use core::ffi::c_char;
 
 // rustdoc imports
 #[allow(unused_imports)]

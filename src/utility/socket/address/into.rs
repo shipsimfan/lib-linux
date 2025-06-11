@@ -5,11 +5,11 @@ impl Into<SocketAddr> for SocketAddress {
     fn into(self) -> SocketAddr {
         match self {
             SocketAddress::V4(addr) => SocketAddr::V4(SocketAddrV4::new(
-                Ipv4Addr::from_octets(addr.addr.addr.to_ne_bytes()),
+                Ipv4Addr::from_bits(u32::from_be(addr.addr.addr)),
                 u16::from_be_bytes(addr.port.to_ne_bytes()),
             )),
             SocketAddress::V6(addr) => SocketAddr::V6(SocketAddrV6::new(
-                Ipv6Addr::from_octets(addr.addr.addr),
+                Ipv6Addr::from_bits(u128::from_be_bytes(addr.addr.addr)),
                 u16::from_be_bytes(addr.port.to_ne_bytes()),
                 u32::from_be_bytes(addr.flow_info.to_ne_bytes()),
                 u32::from_be_bytes(addr.scope_id.to_ne_bytes()),

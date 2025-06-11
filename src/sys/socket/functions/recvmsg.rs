@@ -1,5 +1,5 @@
-use crate::sys::socket::msghdr;
-use core::ffi::{c_int, c_ssize_t};
+use crate::{c_ssize_t, sys::socket::msghdr};
+use core::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]

@@ -1,5 +1,8 @@
-use crate::sys::{socket::socklen_t, uio::iovec};
-use core::ffi::{c_size_t, c_void};
+use crate::{
+    c_size_t,
+    sys::{socket::socklen_t, uio::iovec},
+};
+use core::ffi::c_void;
 use std::{ffi::c_int, ptr::null_mut};
 
 // rustdoc imports

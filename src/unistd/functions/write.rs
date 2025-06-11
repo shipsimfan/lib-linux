@@ -1,4 +1,4 @@
-use core::ffi::c_ssize_t;
+use crate::c_ssize_t;
 use std::ffi::{c_int, c_void};
 
 // rustdoc imports

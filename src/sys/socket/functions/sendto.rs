@@ -1,5 +1,8 @@
-use crate::sys::socket::{sockaddr, socklen_t};
-use core::ffi::{c_int, c_size_t, c_ssize_t, c_void};
+use crate::{
+    c_size_t, c_ssize_t,
+    sys::socket::{sockaddr, socklen_t},
+};
+use core::ffi::{c_int, c_void};
 
 // rustdoc imports
 #[allow(unused_imports)]

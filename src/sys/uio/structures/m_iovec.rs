@@ -1,4 +1,5 @@
-use core::ffi::{c_size_t, c_void};
+use crate::c_size_t;
+use core::ffi::c_void;
 
 /// Structure for scatter/gather I/O
 #[repr(C)]
