@@ -15,6 +15,7 @@ pub mod sys;
 
 // Header files
 pub mod aio;
+pub mod dlfcn;
 pub mod errno;
 pub mod fcntl;
 pub mod locale;
