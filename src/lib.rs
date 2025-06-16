@@ -20,6 +20,7 @@ pub mod errno;
 pub mod fcntl;
 pub mod locale;
 pub mod poll;
+pub mod pthread;
 pub mod signal;
 pub mod stdlib;
 pub mod string;
