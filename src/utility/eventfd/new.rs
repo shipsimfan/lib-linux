@@ -7,6 +7,11 @@ impl EventFd {
         try_linux!(eventfd(initial_value as _, flags)).map(|handle| EventFd { handle })
     }
 
+    /// Creates a new [`EventFd`] with default settings
+    pub fn default() -> Result<Self> {
+        EventFd::new(0, 0)
+    }
+
     /// Creates a new [`EventFd`] from a raw `handle`
     pub unsafe fn from_raw(handle: c_int) -> EventFd {
         EventFd { handle }

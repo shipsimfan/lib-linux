@@ -10,4 +10,9 @@ impl EventFd {
         ))
         .map(|_| ())
     }
+
+    /// Writes 1 into the counter, waking any threads waiting on this [`EventFd`]
+    pub fn signal(&self) -> Result<()> {
+        self.write(1)
+    }
 }
