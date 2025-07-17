@@ -20,13 +20,11 @@ impl EPoll {
     /// Wait for an I/O `event` on an epoll file descriptor
     ///
     /// This function returns if `event` was set
-    pub fn wait_one(&self, event: &mut epoll_event, timeout: Option<usize>) -> Result<bool> {
-        try_linux!(epoll_wait(
-            self.handle,
-            event,
-            1,
-            timeout.map(|timeout| timeout as _).unwrap_or(-1)
-        ))
-        .map(|num| num == 1)
+    pub fn wait_one(&self, timeout: Option<usize>) -> Result<Option<epoll_event>> {
+        let mut events = [epoll_event::default()];
+        Ok(match self.wait(&mut events, timeout)? {
+            0 => None,
+            _ => Some(events[0]),
+        })
     }
 }

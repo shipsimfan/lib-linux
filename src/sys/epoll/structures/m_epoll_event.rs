@@ -3,6 +3,7 @@ use std::ffi::{c_int, c_void};
 /// The [`epoll_event`] structure specifies data that the kernel should save and return when the
 /// corresponding file descriptor becomes ready.
 #[repr(C)]
+#[derive(Clone, Copy)]
 #[allow(non_camel_case_types)]
 pub struct epoll_event {
     /// Epoll events
@@ -14,6 +15,7 @@ pub struct epoll_event {
 
 /// The data associated with an object linked to a file descriptor
 #[repr(C)]
+#[derive(Clone, Copy)]
 #[allow(non_camel_case_types)]
 pub union epoll_data_t {
     /// As a pointer
