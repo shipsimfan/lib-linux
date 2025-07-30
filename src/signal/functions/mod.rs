@@ -1,3 +1,4 @@
+mod kill;
 mod pthread_sigmask;
 mod sigaction;
 mod sigaddset;
@@ -7,6 +8,7 @@ mod sigfillset;
 mod sigismember;
 mod sigprocmask;
 
+pub use kill::kill;
 pub use pthread_sigmask::pthread_sigmask;
 pub use sigaction::sigaction;
 pub use sigaddset::sigaddset;
