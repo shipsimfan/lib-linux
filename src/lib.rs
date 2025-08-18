@@ -19,6 +19,7 @@ pub mod dlfcn;
 pub mod errno;
 pub mod fcntl;
 pub mod locale;
+pub mod netdb;
 pub mod poll;
 pub mod pthread;
 pub mod signal;
