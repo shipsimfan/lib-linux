@@ -1,5 +1,8 @@
 use crate::sys::socket::{sockaddr, socklen_t};
-use std::ffi::{c_char, c_int};
+use std::{
+    ffi::{c_char, c_int},
+    ptr::null_mut,
+};
 
 /// Structure to contain information about address of a service provider
 #[repr(C)]
@@ -29,4 +32,19 @@ pub struct addrinfo {
 
     /// Poitner to next in list
     pub next: *mut addrinfo,
+}
+
+impl Default for addrinfo {
+    fn default() -> Self {
+        addrinfo {
+            flags: 0,
+            family: 0,
+            socktype: 0,
+            protocol: 0,
+            addrlen: 0,
+            addr: null_mut(),
+            canonname: null_mut(),
+            next: null_mut(),
+        }
+    }
 }
