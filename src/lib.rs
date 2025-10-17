@@ -9,6 +9,7 @@
 #![warn(rustdoc::broken_intra_doc_links)]
 
 // Folders
+pub mod bluetooth;
 pub mod linux;
 pub mod netinet;
 pub mod sys;
