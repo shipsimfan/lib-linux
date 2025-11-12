@@ -13,6 +13,8 @@ pub mod bluetooth;
 pub mod linux;
 pub mod netinet;
 pub mod sys;
+#[cfg(feature = "systemd")]
+pub mod systemd;
 
 // Header files
 pub mod aio;

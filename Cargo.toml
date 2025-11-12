@@ -7,3 +7,6 @@ description = "Linux raw bindings"
 repository = "https://github.com/shipsimfan/lib-linux"
 license = "GPL-3.0-or-later"
 publish = false
+
+[features]
+systemd = []
