@@ -15,3 +15,4 @@ pub mod timerfd;
 pub mod types;
 pub mod uio;
 pub mod un;
+pub mod utsname;
