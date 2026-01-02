@@ -5,6 +5,7 @@ mod getcwd;
 mod geteuid;
 mod getuid;
 mod read;
+mod sysconf;
 mod unlink;
 mod write;
 
@@ -15,5 +16,6 @@ pub use getcwd::getcwd;
 pub use geteuid::geteuid;
 pub use getuid::getuid;
 pub use read::read;
+pub use sysconf::sysconf;
 pub use unlink::unlink;
 pub use write::write;
