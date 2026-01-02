@@ -23,3 +23,15 @@ pub struct utsname {
     /// Name of the hardware type the system is running on
     pub machine: [c_char; _UTSNAME_MACHINE_LENGTH],
 }
+
+impl Default for utsname {
+    fn default() -> Self {
+        utsname {
+            sysname: [0; _UTSNAME_SYSNAME_LENGTH],
+            nodename: [0; _UTSNAME_NODENAME_LENGTH],
+            release: [0; _UTSNAME_RELEASE_LENGTH],
+            version: [0; _UTSNAME_VERSION_LENGTH],
+            machine: [0; _UTSNAME_MACHINE_LENGTH],
+        }
+    }
+}
