@@ -9,6 +9,7 @@ pub mod signalfd;
 pub mod socket;
 pub mod stat;
 pub mod syscall;
+pub mod sysinfo;
 pub mod time;
 pub mod timerfd;
 pub mod types;
