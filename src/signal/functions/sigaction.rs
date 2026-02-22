@@ -14,7 +14,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::{null, null_mut};
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigaction`] system call is used to change the action taken by a process on receipt of
     /// a specific signal.
     ///

@@ -1,6 +1,6 @@
 use std::ffi::{c_int, c_long};
 
-extern "C" {
+unsafe extern "C" {
     /// get configuration information at run time
     ///
     /// POSIX allows an application to test at compile or run time whether certain options are

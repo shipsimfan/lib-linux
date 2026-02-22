@@ -5,12 +5,12 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     aio::{aio_error, aio_return},
-    errno::{errno, EAGAIN, EBADF, EINVAL, ENOSYS, EOVERFLOW},
+    errno::{EAGAIN, EBADF, EINVAL, ENOSYS, EOVERFLOW, errno},
     unistd::read,
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_read`] function queues the I/O request described by the buffer pointed to by
     /// `aiocbp`. This function is the asynchronous analog of [`read`]. The arguments of the call
     /// `read(fd, buf, count)` correspond (in order) to the fields `filedes`, `buf`, and `nbytes`

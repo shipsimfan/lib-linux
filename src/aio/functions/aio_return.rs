@@ -4,12 +4,12 @@ use crate::{aio::aiocb, c_ssize_t};
 #[allow(unused_imports)]
 use crate::{
     aio::aio_error,
-    errno::{errno, EINPROGRESS},
+    errno::{EINPROGRESS, errno},
     unistd::{fdatasync, fsync, read, write},
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_return`] function returns the final return status for the asynchronous I/O
     /// request with control block pointed to by `aiocbp`.
     ///

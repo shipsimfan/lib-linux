@@ -7,7 +7,7 @@ use crate::{
     unistd::close,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`epoll_create`] creates a new epoll instance. Since Linux 2.6.8, the size argument is
     /// ignored, but must be greater than zero.
     ///

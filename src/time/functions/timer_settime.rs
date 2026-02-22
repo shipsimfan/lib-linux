@@ -11,7 +11,7 @@ use crate::{
 use std::ptr::null_mut;
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// [`timer_settime`] arms or disarms the timer identified by `timerid`. The `new_value`
     /// argument is pointer to an [`itimerspec`] structure that specifies the new initial value and
     /// the new interval for the timer.

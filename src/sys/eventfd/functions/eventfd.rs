@@ -8,7 +8,7 @@ use crate::{
     sys::eventfd::{EFD_CLOEXEC, EFD_NONBLOCK, EFD_SEMAPHORE},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`eventfd`] creates an "eventfd object" that can be used as an event wait/notify mechanism
     /// by user-space applications, and by the kernel to notify user-space applications of events.
     /// The object contains an unsigned 64-bit integer ([`u64`]) counter that is maintained by the

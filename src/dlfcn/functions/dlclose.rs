@@ -4,7 +4,7 @@ use std::{ffi::c_int, os::raw::c_void};
 #[allow(unused_imports)]
 use crate::dlfcn::{dlerror, dlopen, RTLD_GLOBAL};
 
-extern "C" {
+unsafe extern "C" {
     /// The function [`dlclose`] decrements the reference count on the dynamically loaded shared
     /// object referred to by `handle`.
     ///

@@ -13,7 +13,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     /// This system call performs control operations on the epoll instance referred to by the file
     /// descriptor `epfd`. It requests that the operation `op` be performed for the target file
     /// descriptor, `fd`.

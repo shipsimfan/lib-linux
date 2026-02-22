@@ -6,7 +6,7 @@ use std::ffi::c_int;
 use crate::signal::sigprocmask;
 
 #[link(name = "pthread")]
-extern "C" {
+unsafe extern "C" {
     /// The [`pthread_sigmask`] function is just like [`sigprocmask`], with the difference that its
     /// use in multithreaded programs is explicitly specified by POSIX.1.
     ///

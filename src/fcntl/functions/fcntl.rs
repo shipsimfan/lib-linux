@@ -12,7 +12,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ffi::c_void;
 
-extern "C" {
+unsafe extern "C" {
     /// Manipulate file descriptor
     ///
     /// # Description

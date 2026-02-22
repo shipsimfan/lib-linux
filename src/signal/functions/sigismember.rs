@@ -8,7 +8,7 @@ use crate::{
     signal::{sigemptyset, sigfillset},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigismember`] function shall test whether the signal specified by `signo` is a member
     /// of the set pointed to by `set`.
     ///

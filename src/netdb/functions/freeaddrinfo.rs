@@ -1,6 +1,6 @@
 use crate::netdb::addrinfo;
 
-extern "C" {
+unsafe extern "C" {
     /// Network address and service translation
     ///
     /// The [`freeaddrinfo`] function frees the memory that was allocated for the dynamically

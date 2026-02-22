@@ -8,7 +8,7 @@ use crate::{
     string::strerror,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`strerror_r`] function is similar to [`strerror`], but is thread safe. The
     /// XSI-compliant [`strerror_r`] is preferred for portable applications. It returns the error
     /// string in the user-supplied buffer `buf` of length `buflen`.

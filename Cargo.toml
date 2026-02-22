@@ -1,8 +1,8 @@
 [package]
 name = "linux"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Lance Hart <me@lancehart.ca>"]
-edition = "2021"
+edition = "2024"
 description = "Linux raw bindings"
 repository = "https://github.com/shipsimfan/lib-linux"
 license = "GPL-3.0-or-later"

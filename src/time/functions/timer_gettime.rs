@@ -9,7 +9,7 @@ use crate::{
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// [`timer_gettime`] returns the time until next expiration, and the interval, for the timer
     /// specified by `timerid`, in the buffer pointed to by `curr_value`. The time remaining until
     /// the next timer expiration is returned in `curr_value.value`; this is always a relative

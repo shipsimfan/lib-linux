@@ -1,7 +1,7 @@
 use crate::pthread::pthread_t;
 
 #[link(name = "pthread")]
-extern "C" {
+unsafe extern "C" {
     /// Obtain ID of the calling thread
     ///
     /// The [`pthread_self`] function returns the ID of the calling thread. This is the same value

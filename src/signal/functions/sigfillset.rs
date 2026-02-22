@@ -5,7 +5,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::errno::errno;
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigfillset`] function shall initialize the signal set pointed to by set, such that
     /// all signals defined in this volume of POSIX.1‐2017 are included.
     ///

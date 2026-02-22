@@ -5,16 +5,16 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     aio::{
-        aio_error, aio_read, aio_return, aio_write, LIO_NOP, LIO_NOWAIT, LIO_READ, LIO_WAIT,
-        LIO_WRITE,
+        LIO_NOP, LIO_NOWAIT, LIO_READ, LIO_WAIT, LIO_WRITE, aio_error, aio_read, aio_return,
+        aio_write,
     },
-    errno::{errno, EAGAIN, EINTR, EINVAL, EIO},
+    errno::{EAGAIN, EINTR, EINVAL, EIO, errno},
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`lio_listio`] function initiates the list of I/O operations described by the array
     /// `aiocb_list`.
     ///

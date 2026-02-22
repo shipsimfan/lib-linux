@@ -4,7 +4,7 @@ use crate::time::{time_t, tm};
 #[allow(unused_imports)]
 use crate::time::tzset;
 
-extern "C" {
+unsafe extern "C" {
     /// Transform date and time to broken-down local time
     ///
     /// The [`localtime`] function converts the calendar time `timep` to broken-down time

@@ -5,14 +5,14 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     aio::{aio_read, aio_write, lio_listio},
-    errno::{errno, EAGAIN, EINTR, ENOSYS},
+    errno::{EAGAIN, EINTR, ENOSYS, errno},
     time::CLOCK_MONOTONIC,
 };
 #[allow(unused_imports)]
 use std::ptr::null;
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_suspend`] function suspends the calling thread until one of the following occurs:
     ///  * One or more of the asynchronous I/O requests in the list `aiocb_list` has completed.
     ///  * A signal is delivered.

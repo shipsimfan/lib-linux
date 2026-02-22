@@ -10,7 +10,7 @@ use crate::{
     sys::timerfd::timerfd_create,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`read`] attempts to read up to `count` bytes from file descriptor `fd` into the buffer
     /// starting at `buf`.
     ///

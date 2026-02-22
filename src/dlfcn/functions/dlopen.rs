@@ -9,7 +9,7 @@ use crate::dlfcn::{
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Open a shared object
     ///
     /// The function [`dlopen`] loads the dynamic shared object (shared library) file named by the

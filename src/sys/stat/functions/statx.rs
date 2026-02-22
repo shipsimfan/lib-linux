@@ -18,7 +18,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     /// Get file status
     ///
     /// # Description

@@ -18,7 +18,7 @@ use crate::{
 use std::ptr::null_mut;
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// [`timer_create`] creates a new per-process interval timer. The ID of the new timer is
     /// returned in the buffer pointed to by `timerid`, which must be a non-null pointer. This ID
     /// is unique within the process, until the timer is deleted. The new timer is initially

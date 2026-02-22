@@ -5,7 +5,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::errno::errno;
 
-extern "C" {
+unsafe extern "C" {
     /// get name and information about current kernel
     ///
     /// [`uname`] returns system information in the structure pointed to by `buf`.

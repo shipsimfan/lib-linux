@@ -14,7 +14,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     /// The [`newlocale`] function creates a new locale object, or modifies an existing object,
     /// returning a reference to the new or modified object as the function result. Whether the
     /// call creates a new object or modifies an existing object is determined by the value of

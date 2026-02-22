@@ -1,7 +1,7 @@
 use std::ffi::{c_char, c_int};
 
 #[link(name = "systemd")]
-extern "C" {
+unsafe extern "C" {
     /// Notify service manager about start-up completion and other service status changes
     ///
     /// # Description

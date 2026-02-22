@@ -8,7 +8,7 @@ use crate::{
     signal::{sigemptyset, sigfillset},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigdelset`] function deletes the individual signal specified by `signo` from the
     /// signal set pointed to by `set`.
     ///

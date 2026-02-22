@@ -10,7 +10,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Get current working directory
     ///
     /// # Description

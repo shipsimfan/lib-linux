@@ -15,7 +15,7 @@ use crate::{
     },
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`send`] system call is used to transmit a message to another socket.
     ///
     /// The [`send`] call may be used only when the socket is in a connected state (so that the

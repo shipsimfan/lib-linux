@@ -8,7 +8,7 @@ use crate::{
     signal::{sigemptyset, sigfillset},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigaddset`] function adds the individual signal specified by the `signo` to the
     /// signal set pointed to by `set`.
     ///

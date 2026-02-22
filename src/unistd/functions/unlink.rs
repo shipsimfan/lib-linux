@@ -4,7 +4,7 @@ use std::ffi::c_char;
 #[allow(unused_imports)]
 use crate::errno::errno;
 
-extern "C" {
+unsafe extern "C" {
     /// Delete a name and possibly the file it refers to
     ///
     /// [`unlink`] deletes a name from the filesystem. If that name was the last link to a file and

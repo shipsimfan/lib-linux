@@ -10,7 +10,7 @@ use crate::sys::socket::{
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     /// Network address and service translation
     ///
     /// Given node and service, which identify an Internet host and a service, [`getaddrinfo`]

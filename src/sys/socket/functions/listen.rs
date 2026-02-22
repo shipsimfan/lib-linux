@@ -7,7 +7,7 @@ use crate::{
     sys::socket::{accept, SOCK_SEQPACKET, SOCK_STREAM},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// listen - listen for connections on a socket
     ///
     /// [`listen`] marks the socket referred to by `sockfd` as a passive socket, that is, as a

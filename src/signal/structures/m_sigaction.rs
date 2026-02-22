@@ -20,7 +20,7 @@ pub struct sigaction_t {
     pub flags: c_int,
 
     /// Restore handler
-    pub restorer: Option<extern "C" fn()>,
+    pub restorer: Option<unsafe extern "C" fn()>,
 }
 
 /// Signal handler
@@ -32,7 +32,7 @@ pub union sigaction_handler {
     pub handler: isize,
 
     /// Used if [`SA_SIGINFO`] is set
-    pub sigaction: Option<extern "C" fn(c_int, *mut siginfo_t, *mut c_void)>,
+    pub sigaction: Option<unsafe extern "C" fn(c_int, *mut siginfo_t, *mut c_void)>,
 }
 
 impl Default for sigaction_t {

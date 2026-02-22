@@ -15,7 +15,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// The [`accept`] system call is used with connection-based socket types ([`SOCK_STREAM`],
     /// [`SOCK_SEQPACKET`]). It extracts the first connection request on the queue of pending
     /// connections for the listening socket, `sockfd`, creates a new connected socket, and returns

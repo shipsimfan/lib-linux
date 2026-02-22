@@ -20,7 +20,7 @@ use crate::{
     unistd::close,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`socket`] creates an endpoint for communication and returns a file descriptor that refers
     /// to that endpoint. The file descriptor returned by a successful call will be the
     /// lowest-numbered file descriptor not currently open for the process.

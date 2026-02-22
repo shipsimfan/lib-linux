@@ -9,7 +9,7 @@ use crate::{
     time::{CLOCK_MONOTONIC, CLOCK_REALTIME},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`timerfd_create`] creates a new timer object, and returns a file descriptor that refers to
     /// that timer. The `clockid` argument specifies the clock that is used to mark the progress of
     /// the timer, and must be either [`CLOCK_REALTIME`] or [`CLOCK_MONOTONIC`]. [`CLOCK_REALTIME`]

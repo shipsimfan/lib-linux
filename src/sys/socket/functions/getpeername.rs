@@ -5,7 +5,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::errno::{errno, EBADF, EINVAL, ENOBUFS, ENOTCONN, ENOTSOCK, EOPNOTSUPP};
 
-extern "C" {
+unsafe extern "C" {
     /// Get the name of the peer socket
     ///
     /// # Description

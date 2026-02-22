@@ -5,13 +5,13 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     aio::{aio_error, aio_return},
-    errno::{errno, EAGAIN, EBADF, EFBIG, EINVAL, ENOSYS},
+    errno::{EAGAIN, EBADF, EFBIG, EINVAL, ENOSYS, errno},
     fcntl::O_APPEND,
     unistd::write,
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_write`] function queues the I/O request described by the buffer pointed to by
     /// `aiocbp`. This function is the asynchronous analog of [`write()`]. The arguments of the
     /// call `write(fd, buf, count)` correspond (in order) to the fields `fildes`, `buf`, and

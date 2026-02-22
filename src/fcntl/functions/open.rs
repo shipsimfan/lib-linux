@@ -17,7 +17,7 @@ use crate::{
     unistd::{close, fdatasync, fsync, read, write},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`open`] system call opens the file specified by `pathname`. If the specified file does
     /// not exist, it may optionally (if [`O_CREAT`] is specified in `flags`) be created by
     /// [`open`].

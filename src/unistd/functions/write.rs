@@ -14,7 +14,7 @@ use crate::{
     unistd::{fsync, read},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`write()`] writes up to `count` bytes from the buffer starting at `buf` to the file referred
     /// to by the file descriptor `fd`.
     ///

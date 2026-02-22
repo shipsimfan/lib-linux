@@ -4,7 +4,7 @@ use std::ffi::c_long;
 #[allow(unused_imports)]
 use crate::errno::{errno, ENOSYS};
 
-extern "C" {
+unsafe extern "C" {
     /// Indirect system call
     ///
     /// # Description

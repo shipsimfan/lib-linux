@@ -6,7 +6,7 @@ use crate::dlfcn::{dlerror, dlopen, RTLD_DEFAULT, RTLD_GLOBAL, RTLD_NEXT};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Obtain address of a symbol in a shared object or executable
     ///
     /// The function [`dlsym`] takes a "handle" of a dynamic loaded shared object returned by

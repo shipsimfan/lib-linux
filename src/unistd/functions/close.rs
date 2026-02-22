@@ -8,7 +8,7 @@ use crate::{
     unistd::{fsync, write},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// Close a file descriptor
     ///
     /// # Description

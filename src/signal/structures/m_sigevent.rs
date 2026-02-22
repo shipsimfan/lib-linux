@@ -56,7 +56,7 @@ pub union sigevent_union {
 #[allow(non_camel_case_types)]
 #[derive(Clone, Copy)]
 pub struct sigevent_thread {
-    pub function: Option<extern "C" fn(sigval)>,
+    pub function: Option<unsafe extern "C" fn(sigval)>,
     pub attribute: *mut c_void,
 }
 

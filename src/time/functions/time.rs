@@ -6,7 +6,7 @@ use crate::errno::errno;
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Get time in seconds
     ///
     /// # Description

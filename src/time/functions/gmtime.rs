@@ -4,7 +4,7 @@ use crate::time::{time_t, tm};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Transform date and time to broken-down UTC time
     ///
     /// The [`gmtime`] function converts the calendar time `timep` to broken-down time

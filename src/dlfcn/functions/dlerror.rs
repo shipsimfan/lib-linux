@@ -6,7 +6,7 @@ use crate::dlfcn::dlopen;
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Obtain error diagnostic for functions in the [`dlopen`] API
     ///
     /// The [`dlerror`] function returns a human-readable, null-terminated string describing the

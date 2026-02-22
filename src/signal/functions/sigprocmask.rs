@@ -10,7 +10,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::{null, null_mut};
 
-extern "C" {
+unsafe extern "C" {
     /// [`sigprocmask`] is used to fetch and/or change the signal mask of the calling thread. The
     /// signal mask is the set of signals whose delivery is currently blocked for the caller.
     ///

@@ -13,7 +13,7 @@ use crate::{
     },
 };
 
-extern "C" {
+unsafe extern "C" {
     /// Open a file
     ///
     /// # Description

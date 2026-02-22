@@ -9,7 +9,7 @@ use crate::{
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// [`timer_getoverrun`] returns the "overrun count" for the timer referred to by `timerid`. An
     /// application can use the overrun count to accurately calculate the number of timer
     /// expirations that would have occurred over a given time interval. Timer overruns can occur

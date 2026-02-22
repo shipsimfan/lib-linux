@@ -7,7 +7,7 @@ use crate::stdlib::free;
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Allocate dynamic memory
     ///
     /// # Description

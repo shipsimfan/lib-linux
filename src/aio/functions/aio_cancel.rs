@@ -4,14 +4,14 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    aio::{aio_error, aio_return, AIO_ALLDONE, AIO_CANCELED, AIO_NOTCANCELED},
-    errno::{errno, EBADF, ECANCELED, EINPROGRESS, ENOSYS},
+    aio::{AIO_ALLDONE, AIO_CANCELED, AIO_NOTCANCELED, aio_error, aio_return},
+    errno::{EBADF, ECANCELED, EINPROGRESS, ENOSYS, errno},
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_cancel`] function attempts to cancel outstanding asynchronous I/O requests for
     /// the file descriptor `fd`. If `aiocbp` is [`null_mut`], all such requests are canceled.
     /// Otherwise, only the request described by the control block pointed to by `aiocbp` is

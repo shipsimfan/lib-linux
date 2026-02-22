@@ -8,7 +8,7 @@ use crate::{
     sys::mman::{PROT_EXEC, PROT_NONE, PROT_READ, PROT_WRITE},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`mprotect`] changes the access protections for the calling process's memory pages
     /// containing any part of the address range in the interval [`addr`, `addr + len - 1`]. `addr`
     /// must be aligned to a page boundary.

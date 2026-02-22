@@ -6,7 +6,7 @@ use std::ffi::c_int;
 use std::ptr::null_mut;
 
 #[link(name = "c")]
-extern "C" {
+unsafe extern "C" {
     /// Gets the time as well as a timezone.
     ///
     /// If either `tv` or `tz` is [`null_mut`], the corresponding structure is not set or returned.

@@ -6,7 +6,7 @@ use std::ffi::c_int;
 use crate::sys::epoll;
 
 #[link(name = "c")]
-extern "system" {
+unsafe extern "C" {
     /// Wait for some event on a file descriptor
     ///
     /// # Description

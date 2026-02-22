@@ -8,7 +8,7 @@ use crate::{
     unistd::close,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// epoll_create1 - open an epoll file descriptor
     ///
     /// [`epoll_create1`] creates a new epoll instance. If flags is 0, then, other than the fact

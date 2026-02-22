@@ -7,7 +7,7 @@ use crate::errno::{
     errno, EACCES, EFAULT, EIO, ELOOP, ENAMETOOLONG, ENOENT, ENOMEM, ENOTDIR, EPERM, EROFS,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`chmod`] changes the permissions of the file specified whose pathname is given in
     /// `pathname`, which is dereferenced if it is a symbolic link.
     ///

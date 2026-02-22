@@ -8,7 +8,7 @@ use crate::{
     sys::timerfd::TFD_TIMER_ABSTIME,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`timerfd_gettime`] returns, in `curr_value`, an [`itimerspec`] structure that contains the
     /// current setting of the timer referred to by the file descriptor `fd`.
     ///

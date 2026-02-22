@@ -14,7 +14,7 @@ use crate::{
     unistd::close,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// Get the socket options
     ///
     /// # Description

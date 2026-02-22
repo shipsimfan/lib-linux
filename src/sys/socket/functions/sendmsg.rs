@@ -15,7 +15,7 @@ use crate::{
     },
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sendmsg`] system call is used to transmit a message to another socket.
     ///
     /// The argument `sockfd` is the file descriptor of the sending socket.

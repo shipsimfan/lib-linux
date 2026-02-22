@@ -6,7 +6,7 @@ use crate::stdlib::{calloc, malloc, realloc};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Free dynamic memory
     ///
     /// # Description

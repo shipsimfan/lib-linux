@@ -8,7 +8,7 @@ use crate::{
     string::strerror,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`strerror_l`] is like [`strerror`], but maps `errnum` to a locale-dependent error message in
     /// the locale specified by locale. The behavior of [`strerror_l`] is undefined if locale is
     /// the special locale object [`LC_GLOBAL_LOCALE`] or is not a valid locale object handle.

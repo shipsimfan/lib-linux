@@ -13,7 +13,7 @@ use crate::{
     },
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`signalfd`] creates a file descriptor that can be used to accept signals targeted at the
     /// caller. This provides an alternative to the use of a signal handler or [`sigwaitinfo`], and
     /// has the advantage that the file descriptor may be monitored by [`select`], [`poll`], and

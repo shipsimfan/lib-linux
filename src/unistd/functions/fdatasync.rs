@@ -7,7 +7,7 @@ use crate::{
     unistd::{fsync, write},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// [`fdatasync`] is similar to [`fsync`], but does not flush modified metadata unless that
     /// metadata is needed in order to allow a subsequent data retrieval to be correctly handled.
     /// For example, changes to `st_atime` or `st_mtime` (respectively, time of last access and

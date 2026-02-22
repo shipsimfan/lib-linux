@@ -12,7 +12,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// [`timerfd_settime`] arms (starts) or disarms (stops) the timer referred to by the file
     /// descriptor `fd`.
     ///

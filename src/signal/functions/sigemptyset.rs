@@ -5,7 +5,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::errno::errno;
 
-extern "C" {
+unsafe extern "C" {
     /// The [`sigemptyset`] function initializes the signal set pointed to by set, such that all
     /// signals defined in POSIX.1‐2008 are excluded.
     ///

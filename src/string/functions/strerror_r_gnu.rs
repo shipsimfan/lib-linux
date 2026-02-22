@@ -8,7 +8,7 @@ use crate::{
     string::strerror,
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`strerror_r`] function is similar to [`strerror`], but is thread safe. The
     /// GNU-specific [`strerror_r`] returns a pointer to a string containing the error message.
     /// This may be either a pointer to a string that the function stores in `buf`, or a pointer to

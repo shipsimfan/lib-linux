@@ -4,14 +4,14 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EAGAIN, EBADF, EINVAL, ENOSYS},
+    errno::{EAGAIN, EBADF, EINVAL, ENOSYS, errno},
     fcntl::{O_DSYNC, O_SYNC},
     signal::sigevent,
     unistd::{fdatasync, fsync},
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_fsync`] function does a sync on all outstanding asynchronous I/O operations
     /// associated with `aiocbp.fildes`.
     ///

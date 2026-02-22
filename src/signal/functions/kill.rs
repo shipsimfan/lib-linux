@@ -5,7 +5,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{errno::errno, signal::SIGCONT};
 
-extern "C" {
+unsafe extern "C" {
     /// Send signal to a process
     ///
     /// The [`kill`] system call can be used to send any signal to any process group or process.

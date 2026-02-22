@@ -16,7 +16,7 @@ use crate::{
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     /// The [`recvmsg`] call is used to receive messages from a socket, and may be used to receive
     /// data on a socket whether or not it is connection-oriented.
     ///

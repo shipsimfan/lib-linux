@@ -8,7 +8,7 @@ use crate::{
     sys::epoll::{epoll_ctl, EPOLL_CTL_ADD, EPOLL_CTL_MOD},
 };
 
-extern "C" {
+unsafe extern "C" {
     /// The [`epoll_wait`] system call waits for events on the epoll instance referred to by the
     /// file descriptor `epfd`. The buffer pointed to by events is used to return information from
     /// the ready list about file descriptors in the interest list that have some events available.

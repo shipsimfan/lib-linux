@@ -7,7 +7,7 @@ use crate::stdlib::{calloc, free, malloc};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
-extern "C" {
+unsafe extern "C" {
     /// Reallocate dynamic memory
     ///
     /// # Description

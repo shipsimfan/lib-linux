@@ -4,7 +4,7 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use std::ptr::null;
 
-extern "C" {
+unsafe extern "C" {
     fn __errno_location() -> *mut c_int;
 }
 
@@ -25,5 +25,5 @@ extern "C" {
 /// be explicitly declared; [`errno`] may be a macro. errno is thread-local; setting it in one
 /// thread does not affect its value in any other thread.
 pub unsafe fn errno() -> &'static mut c_int {
-    &mut *__errno_location()
+    unsafe { &mut *__errno_location() }
 }

@@ -2,7 +2,7 @@ use crate::pthread::{pthread_t, sched_param};
 use std::ffi::c_int;
 
 #[link(name = "pthread")]
-extern "C" {
+unsafe extern "C" {
     /// Set scheduling policy and parameters of a thread
     ///
     /// The [`pthread_setschedparam`] function sets the scheduling policy and parameters of the

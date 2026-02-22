@@ -5,12 +5,12 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     aio::aio_return,
-    errno::{errno, ECANCELED, EINPROGRESS, EINVAL, ENOSYS},
+    errno::{ECANCELED, EINPROGRESS, EINVAL, ENOSYS, errno},
     unistd::{fdatasync, fsync, read, write},
 };
 
 #[link(name = "rt")]
-extern "C" {
+unsafe extern "C" {
     /// The [`aio_error`] function returns the error status for the asynchronous I/O request with
     /// control block pointed to by `aiocbp`.
     ///
