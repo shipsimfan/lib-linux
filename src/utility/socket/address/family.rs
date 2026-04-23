@@ -1,6 +1,6 @@
 use crate::{
-    sys::socket::{AF_INET, AF_INET6},
     SocketAddress,
+    sys::socket::{AF_INET, AF_INET6},
 };
 use std::ffi::c_int;
 

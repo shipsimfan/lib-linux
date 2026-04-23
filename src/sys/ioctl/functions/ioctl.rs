@@ -2,7 +2,7 @@ use std::ffi::{c_int, c_ulong};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EBADF, EFAULT, EINVAL, ENOTTY};
+use crate::errno::{EBADF, EFAULT, EINVAL, ENOTTY, errno};
 
 unsafe extern "C" {
     /// Control Device

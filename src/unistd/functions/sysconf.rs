@@ -1,8 +1,13 @@
 use std::ffi::{c_int, c_long};
 
+// rustdoc imports
+#[allow(unused_imports)]
+use crate::errno::{EINVAL, errno};
+
 unsafe extern "C" {
-    /// get configuration information at run time
+    /// Get configuration information at run time
     ///
+    /// # Description
     /// POSIX allows an application to test at compile or run time whether certain options are
     /// supported, or what the value is of certain configurable constants or limits.
     ///
@@ -31,5 +36,11 @@ unsafe extern "C" {
     /// greater value might actually be supported. If an application wants to take advantage of
     /// values which may change between systems, a call to [`sysconf`] can be made. The [`sysconf`]
     /// argument will be `_SC_FOO`.
+    ///
+    /// # Return Value
+    /// If `name` is invalid, -1 is returned, and [`errno`] is set to [`EINVAL`]. Otherwise, the
+    /// value returned is the value of the system resource and errno is not changed. In the case of
+    /// options, a positive value is returned if a queried option is available, and -1 if it is
+    /// not. In the case of limits, -1 means that there is no definite limit.
     pub fn sysconf(name: c_int) -> c_long;
 }

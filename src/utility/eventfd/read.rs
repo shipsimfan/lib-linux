@@ -1,4 +1,4 @@
-use crate::{try_linux, unistd::read, EventFd, Result};
+use crate::{EventFd, Result, try_linux, unistd::read};
 
 impl EventFd {
     /// Read the value of the counter

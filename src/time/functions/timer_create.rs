@@ -7,11 +7,13 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EAGAIN, EINVAL, ENOMEM, EOPNOTSUPP, EPERM},
-    signal::{siginfo_t, SIGALRM, SIGEV_NONE, SIGEV_SIGNAL, SIGEV_THREAD, SIGEV_THREAD_ID},
+    errno::{EAGAIN, EINVAL, ENOMEM, EOPNOTSUPP, EPERM, errno},
+    linux::capability::CAP_WAKE_ALARM,
+    signal::{SIGALRM, SIGEV_NONE, SIGEV_SIGNAL, SIGEV_THREAD, SIGEV_THREAD_ID, siginfo_t},
     time::{
         CLOCK_BOOTTIME, CLOCK_BOOTTIME_ALARM, CLOCK_MONOTONIC, CLOCK_PROCESS_CPUTIME_ID,
-        CLOCK_REALTIME, CLOCK_REALTIME_ALARM, CLOCK_TAI, CLOCK_THREAD_CPUTIME_ID,
+        CLOCK_REALTIME, CLOCK_REALTIME_ALARM, CLOCK_TAI, CLOCK_THREAD_CPUTIME_ID, timer_getoverrun,
+        timer_gettime,
     },
 };
 #[allow(unused_imports)]

@@ -4,13 +4,16 @@ use std::ffi::{c_int, c_void};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EAGAIN, EBADF, EFAULT, EINTR, EINVAL, EIO, EISDIR, EWOULDBLOCK},
-    fcntl::{open, O_DIRECT, O_NONBLOCK},
+    errno::{EAGAIN, EBADF, EFAULT, EINTR, EINVAL, EIO, EISDIR, EWOULDBLOCK, errno},
+    fcntl::{O_DIRECT, O_NONBLOCK, open},
     signal::SIGTTIN,
     sys::timerfd::timerfd_create,
 };
 
 unsafe extern "C" {
+    /// Read from a file descriptor
+    ///
+    /// # Description
     /// [`read`] attempts to read up to `count` bytes from file descriptor `fd` into the buffer
     /// starting at `buf`.
     ///

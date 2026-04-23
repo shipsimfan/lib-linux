@@ -1,4 +1,4 @@
-use crate::{sys::epoll::epoll_create, try_linux, EPoll, Result};
+use crate::{EPoll, Result, sys::epoll::epoll_create, try_linux};
 use std::ffi::c_int;
 
 impl EPoll {

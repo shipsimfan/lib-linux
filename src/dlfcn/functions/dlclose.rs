@@ -2,7 +2,7 @@ use std::{ffi::c_int, os::raw::c_void};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::dlfcn::{dlerror, dlopen, RTLD_GLOBAL};
+use crate::dlfcn::{RTLD_GLOBAL, dlerror, dlopen};
 
 unsafe extern "C" {
     /// The function [`dlclose`] decrements the reference count on the dynamically loaded shared

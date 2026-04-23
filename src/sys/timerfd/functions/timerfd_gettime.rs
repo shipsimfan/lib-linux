@@ -4,7 +4,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EFAULT, EINVAL},
+    errno::{EBADF, EFAULT, EINVAL, errno},
     sys::timerfd::TFD_TIMER_ABSTIME,
 };
 

@@ -3,7 +3,10 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::sys::epoll;
+use crate::{
+    poll::{POLLERR, POLLHUP, POLLNVAL},
+    sys::epoll,
+};
 
 #[link(name = "c")]
 unsafe extern "C" {

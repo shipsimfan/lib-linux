@@ -5,18 +5,21 @@ use core::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EAGAIN, EBADF, ECONNREFUSED, EFAULT, EINTR, EINVAL, ENOMEM, ENOTCONN, ENOTSOCK,
-        EWOULDBLOCK,
+        EAGAIN, EBADF, ECONNREFUSED, EFAULT, EINTR, EINVAL, ENOMEM, ENOTCONN, ENOTSOCK,
+        EWOULDBLOCK, errno,
     },
     sys::socket::{
-        accept, connect, sockaddr, AF_PACKET, AF_UNSPEC, MSG_CMSG_CLOEXEC, MSG_DONTWAIT,
-        MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC, MSG_WAITALL,
+        AF_PACKET, AF_UNSPEC, MSG_CMSG_CLOEXEC, MSG_DONTWAIT, MSG_ERRQUEUE, MSG_OOB, MSG_PEEK,
+        MSG_TRUNC, MSG_WAITALL, accept, connect, sockaddr,
     },
 };
 #[allow(unused_imports)]
 use std::ptr::null;
 
 unsafe extern "C" {
+    /// Receive a message from a socket
+    ///
+    /// # Description
     /// The [`recvmsg`] call is used to receive messages from a socket, and may be used to receive
     /// data on a socket whether or not it is connection-oriented.
     ///

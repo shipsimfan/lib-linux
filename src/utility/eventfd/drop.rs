@@ -1,4 +1,4 @@
-use crate::{unistd::close, EventFd};
+use crate::{EventFd, unistd::close};
 
 impl Drop for EventFd {
     fn drop(&mut self) {

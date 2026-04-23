@@ -1,4 +1,4 @@
-use crate::{errno::errno, Error};
+use crate::{Error, errno::errno};
 use std::ffi::c_int;
 
 impl Error {

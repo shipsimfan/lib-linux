@@ -1,4 +1,4 @@
-use crate::netinet::r#in::{in6_addr, in_port_t};
+use crate::netinet::r#in::{in_port_t, in6_addr};
 use std::{ffi::c_ushort, net::SocketAddrV6};
 
 // rustdoc imports

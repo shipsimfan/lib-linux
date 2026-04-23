@@ -1,4 +1,4 @@
-use crate::{try_linux, unistd::write, EventFd, Result};
+use crate::{EventFd, Result, try_linux, unistd::write};
 
 impl EventFd {
     /// Write a value into the counter, waking threads if any are blocking

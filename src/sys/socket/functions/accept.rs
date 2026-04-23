@@ -5,17 +5,20 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EAGAIN, EBADF, ECONNABORTED, EFAULT, EHOSTDOWN, EHOSTUNREACH, EINTR, EINVAL, EMFILE,
+        EAGAIN, EBADF, ECONNABORTED, EFAULT, EHOSTDOWN, EHOSTUNREACH, EINTR, EINVAL, EMFILE,
         ENETDOWN, ENETUNREACH, ENFILE, ENOBUFS, ENOMEM, ENONET, ENOPROTOOPT, ENOTSOCK, EOPNOTSUPP,
-        EPERM, EPROTO, EWOULDBLOCK,
+        EPERM, EPROTO, EWOULDBLOCK, errno,
     },
     signal::SIGIO,
-    sys::socket::{bind, listen, socket, SOCK_SEQPACKET, SOCK_STREAM},
+    sys::socket::{SOCK_SEQPACKET, SOCK_STREAM, bind, listen, socket},
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 
 unsafe extern "C" {
+    /// Accept a connection on a socket
+    ///
+    /// # Description
     /// The [`accept`] system call is used with connection-based socket types ([`SOCK_STREAM`],
     /// [`SOCK_SEQPACKET`]). It extracts the first connection request on the queue of pending
     /// connections for the listening socket, `sockfd`, creates a new connected socket, and returns

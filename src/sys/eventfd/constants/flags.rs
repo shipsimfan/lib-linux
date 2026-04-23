@@ -2,7 +2,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::fcntl::{open, O_NONBLOCK};
+use crate::fcntl::{O_NONBLOCK, open};
 
 /// Provide semaphore-like semantics for reads from the new file descriptor.
 pub const EFD_SEMAPHORE: c_int = 0o0000001;

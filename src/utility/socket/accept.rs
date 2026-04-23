@@ -1,7 +1,8 @@
 use crate::{
+    Result, Socket, SocketAddress,
     netinet::r#in::sockaddr_in6,
-    sys::socket::{accept, AF_INET, AF_INET6},
-    try_linux, Result, Socket, SocketAddress,
+    sys::socket::{AF_INET, AF_INET6, accept},
+    try_linux,
 };
 
 impl Socket {

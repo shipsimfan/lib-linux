@@ -1,4 +1,4 @@
-use crate::{unistd::close, Socket};
+use crate::{Socket, unistd::close};
 
 impl Drop for Socket {
     fn drop(&mut self) {

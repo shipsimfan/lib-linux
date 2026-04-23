@@ -4,23 +4,26 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EAFNOSUPPORT, EINVAL, EMFILE, ENFILE, ENOBUFS, ENOMEM, EPROTONOSUPPORT,
+        EACCES, EAFNOSUPPORT, EINVAL, EMFILE, ENFILE, ENOBUFS, ENOMEM, EPROTONOSUPPORT, errno,
     },
     signal::{SIGIO, SIGPIPE, SIGURG},
     sys::socket::{
-        connect, getsockopt, recv, recvfrom, send, sendto, setsockopt, AF_ALG, AF_APPLETALK,
-        AF_ASH, AF_ATMPVC, AF_ATMSVC, AF_AX25, AF_BLUETOOTH, AF_BRIDGE, AF_CAIF, AF_CAN, AF_DECNET,
-        AF_ECONET, AF_FILE, AF_IB, AF_IEEE802154, AF_INET, AF_INET6, AF_IPX, AF_IRDA, AF_ISDN,
-        AF_IUCV, AF_KCM, AF_KEY, AF_LLC, AF_LOCAL, AF_MCTP, AF_MPLS, AF_NETBEUI, AF_NETLINK,
-        AF_NETROM, AF_NFC, AF_PACKET, AF_PHONET, AF_PPPOX, AF_QIPCRTR, AF_RDS, AF_ROSE, AF_ROUTE,
-        AF_RXRPC, AF_SECURITY, AF_SMC, AF_SNA, AF_TIPC, AF_UNIX, AF_UNSPEC, AF_VSOCK, AF_WANPIPE,
-        AF_X25, AF_XDP, SOCK_DCCP, SOCK_DGRAM, SOCK_PACKET, SOCK_RAW, SOCK_RDM, SOCK_SEQPACKET,
-        SOCK_STREAM, SO_KEEPALIVE,
+        AF_ALG, AF_APPLETALK, AF_ASH, AF_ATMPVC, AF_ATMSVC, AF_AX25, AF_BLUETOOTH, AF_BRIDGE,
+        AF_CAIF, AF_CAN, AF_DECNET, AF_ECONET, AF_FILE, AF_IB, AF_IEEE802154, AF_INET, AF_INET6,
+        AF_IPX, AF_IRDA, AF_ISDN, AF_IUCV, AF_KCM, AF_KEY, AF_LLC, AF_LOCAL, AF_MCTP, AF_MPLS,
+        AF_NETBEUI, AF_NETLINK, AF_NETROM, AF_NFC, AF_PACKET, AF_PHONET, AF_PPPOX, AF_QIPCRTR,
+        AF_RDS, AF_ROSE, AF_ROUTE, AF_RXRPC, AF_SECURITY, AF_SMC, AF_SNA, AF_TIPC, AF_UNIX,
+        AF_UNSPEC, AF_VSOCK, AF_WANPIPE, AF_X25, AF_XDP, SO_KEEPALIVE, SOCK_DCCP, SOCK_DGRAM,
+        SOCK_PACKET, SOCK_RAW, SOCK_RDM, SOCK_SEQPACKET, SOCK_STREAM, connect, getsockopt, recv,
+        recvfrom, send, sendto, setsockopt,
     },
     unistd::close,
 };
 
 unsafe extern "C" {
+    /// Create an endpoint for communication
+    ///
+    /// # Description
     /// [`socket`] creates an endpoint for communication and returns a file descriptor that refers
     /// to that endpoint. The file descriptor returned by a successful call will be the
     /// lowest-numbered file descriptor not currently open for the process.

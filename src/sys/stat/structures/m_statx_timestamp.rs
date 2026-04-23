@@ -5,6 +5,7 @@ use crate::sys::stat::statx;
 /// Timestamp returned by the [`statx`] system call
 #[repr(C)]
 #[allow(non_camel_case_types)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct statx_timestamp {
     /// The number of seconds
     pub sec: i64,

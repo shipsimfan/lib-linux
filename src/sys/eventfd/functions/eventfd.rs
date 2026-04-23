@@ -3,8 +3,8 @@ use std::ffi::{c_int, c_uint};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM},
-    fcntl::{open, O_CLOEXEC, O_NONBLOCK},
+    errno::{EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM, errno},
+    fcntl::{O_CLOEXEC, O_NONBLOCK, open},
     sys::eventfd::{EFD_CLOEXEC, EFD_NONBLOCK, EFD_SEMAPHORE},
 };
 

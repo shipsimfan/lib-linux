@@ -3,7 +3,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EBADF, EINVAL, ENOBUFS, ENOTSOCK, EOPNOTSUPP};
+use crate::errno::{EBADF, EINVAL, ENOBUFS, ENOTSOCK, EOPNOTSUPP, errno};
 
 unsafe extern "C" {
     /// Get the socket name
@@ -34,5 +34,5 @@ unsafe extern "C" {
     ///  * [`ENOBUFS`] - Insufficient resources were available in the system to complete the
     ///                  function.
     pub fn getsockname(socket: c_int, address: *mut sockaddr, address_len: *mut socklen_t)
-        -> c_int;
+    -> c_int;
 }

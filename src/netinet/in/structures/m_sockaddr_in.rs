@@ -1,6 +1,6 @@
 use crate::{
     netinet::r#in::{in_addr, in_port_t},
-    sys::socket::{sockaddr, AF_INET},
+    sys::socket::{AF_INET, sockaddr},
 };
 use std::{ffi::c_ushort, mem::size_of, net::SocketAddrV4};
 

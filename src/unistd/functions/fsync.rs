@@ -3,11 +3,14 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EDQUOT, EINTR, EINVAL, EIO, ENOSPC, EROFS},
+    errno::{EBADF, EDQUOT, EINTR, EINVAL, EIO, ENOSPC, EROFS, errno},
     unistd::write,
 };
 
 unsafe extern "C" {
+    /// Synchronize a file's in-core state with storage device
+    ///
+    /// # Description
     /// [`fsync`] transfers ("flushes") all modified in-core data of (i.e., modified buffer cache
     /// pages for) the file referred to by the file descriptor `fd` to the disk device (or other
     /// permanent storage device) so that all changed information can be retrieved even if the

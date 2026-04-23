@@ -4,8 +4,8 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EFAULT, EINVAL},
-    time::{timespec, CLOCK_REALTIME, TIMER_ABSTIME},
+    errno::{EFAULT, EINVAL, errno},
+    time::{CLOCK_REALTIME, TIMER_ABSTIME, timer_create, timer_getoverrun, timespec},
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;

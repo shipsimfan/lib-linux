@@ -5,8 +5,8 @@ use core::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EAGAIN, EALREADY, EBADF, ECONNRESET, EDESTADDRREQ, EFAULT, EINTR, EINVAL,
-        EISCONN, EMSGSIZE, ENOBUFS, ENOMEM, ENOTCONN, ENOTSOCK, EOPNOTSUPP, EPIPE, EWOULDBLOCK,
+        EACCES, EAGAIN, EALREADY, EBADF, ECONNRESET, EDESTADDRREQ, EFAULT, EINTR, EINVAL, EISCONN,
+        EMSGSIZE, ENOBUFS, ENOMEM, ENOTCONN, ENOTSOCK, EOPNOTSUPP, EPIPE, EWOULDBLOCK, errno,
     },
     signal::SIGPIPE,
     sys::socket::{
@@ -16,6 +16,9 @@ use crate::{
 };
 
 unsafe extern "C" {
+    /// Send a message on a socket
+    ///
+    /// # Description
     /// The [`sendmsg`] system call is used to transmit a message to another socket.
     ///
     /// The argument `sockfd` is the file descriptor of the sending socket.

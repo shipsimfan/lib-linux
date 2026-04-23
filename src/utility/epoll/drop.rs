@@ -1,4 +1,4 @@
-use crate::{unistd::close, EPoll};
+use crate::{EPoll, unistd::close};
 
 impl Drop for EPoll {
     fn drop(&mut self) {

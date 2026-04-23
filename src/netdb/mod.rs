@@ -5,5 +5,5 @@ mod functions;
 mod structures;
 
 pub use constants::*;
-pub use functions::{freeaddrinfo, gai_strerror, getaddrinfo};
-pub use structures::addrinfo;
+pub use functions::*;
+pub use structures::*;

@@ -3,11 +3,21 @@ use std::ffi::{c_char, c_int};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{
-    errno, EACCES, EFAULT, EIO, ELOOP, ENAMETOOLONG, ENOENT, ENOMEM, ENOTDIR, EPERM, EROFS,
+use crate::{
+    errno::{
+        EACCES, EFAULT, EIO, ELOOP, ENAMETOOLONG, ENOENT, ENOMEM, ENOTDIR, EPERM, EROFS, errno,
+    },
+    linux::capability::{CAP_FOWNER, CAP_FSETID},
+    sys::stat::{
+        S_IRGRP, S_IROTH, S_IRUSR, S_ISGID, S_ISUID, S_ISVTX, S_IWGRP, S_IWOTH, S_IWUSR, S_IXGRP,
+        S_IXOTH, S_IXUSR,
+    },
 };
 
 unsafe extern "C" {
+    /// Change permissions of a file
+    ///
+    /// # Description
     /// [`chmod`] changes the permissions of the file specified whose pathname is given in
     /// `pathname`, which is dereferenced if it is a symbolic link.
     ///

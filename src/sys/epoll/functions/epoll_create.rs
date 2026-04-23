@@ -3,7 +3,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EINVAL, EMFILE, ENFILE, ENOMEM},
+    errno::{EINVAL, EMFILE, ENFILE, ENOMEM, errno},
     unistd::close,
 };
 

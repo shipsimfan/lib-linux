@@ -1,6 +1,6 @@
 use crate::{
-    netinet::r#in::{sockaddr_in, sockaddr_in6},
     SocketAddress,
+    netinet::r#in::{sockaddr_in, sockaddr_in6},
 };
 
 impl SocketAddress {

@@ -4,7 +4,7 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EFAULT, EINVAL},
+    errno::{EFAULT, EINVAL, errno},
     signal::{SIG_BLOCK, SIG_SETMASK, SIG_UNBLOCK},
 };
 #[allow(unused_imports)]

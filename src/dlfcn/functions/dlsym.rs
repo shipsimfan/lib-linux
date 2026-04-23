@@ -2,7 +2,7 @@ use std::ffi::{c_char, c_void};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::dlfcn::{dlerror, dlopen, RTLD_DEFAULT, RTLD_GLOBAL, RTLD_NEXT};
+use crate::dlfcn::{RTLD_DEFAULT, RTLD_GLOBAL, RTLD_NEXT, dlerror, dlopen};
 #[allow(unused_imports)]
 use std::ptr::null_mut;
 

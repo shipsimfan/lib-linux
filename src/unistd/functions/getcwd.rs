@@ -4,7 +4,7 @@ use core::ffi::c_char;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EACCES, EFAULT, EINVAL, ENOENT, ERANGE},
+    errno::{EACCES, EFAULT, EINVAL, ENOENT, ERANGE, errno},
     stdlib::{free, malloc},
 };
 #[allow(unused_imports)]

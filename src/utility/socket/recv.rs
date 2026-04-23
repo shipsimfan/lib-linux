@@ -1,4 +1,4 @@
-use crate::{sys::socket::recv, try_linux, Result, Socket};
+use crate::{Result, Socket, sys::socket::recv, try_linux};
 use std::ffi::c_int;
 
 impl Socket {

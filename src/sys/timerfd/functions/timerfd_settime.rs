@@ -4,8 +4,8 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, ECANCELED, EFAULT, EINVAL},
-    sys::timerfd::{timerfd_gettime, TFD_TIMER_ABSTIME, TFD_TIMER_CANCEL_ON_SET},
+    errno::{EBADF, ECANCELED, EFAULT, EINVAL, errno},
+    sys::timerfd::{TFD_TIMER_ABSTIME, TFD_TIMER_CANCEL_ON_SET, timerfd_gettime},
     time::{CLOCK_REALTIME, CLOCK_REALTIME_ALARM},
     unistd::read,
 };

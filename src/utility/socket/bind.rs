@@ -1,4 +1,4 @@
-use crate::{sys::socket::bind, try_linux, Result, Socket, SocketAddress};
+use crate::{Result, Socket, SocketAddress, sys::socket::bind, try_linux};
 
 impl Socket {
     /// Bind a socket to a name

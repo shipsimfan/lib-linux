@@ -1,6 +1,7 @@
 use crate::{
+    EPoll, Result,
     sys::epoll::{epoll_event, epoll_wait},
-    try_linux, EPoll, Result,
+    try_linux,
 };
 
 impl EPoll {

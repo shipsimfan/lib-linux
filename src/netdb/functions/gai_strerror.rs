@@ -5,6 +5,9 @@ use std::ffi::{c_char, c_int};
 use crate::netdb::getaddrinfo;
 
 unsafe extern "C" {
+    /// Network address and service translation
+    ///
+    /// # Description
     /// The [`gai_strerror`] function translates [`getaddrinfo`] error codes to a human readable
     /// string, suitable for error reporting.
     pub fn gai_strerror(errcode: c_int) -> *const c_char;

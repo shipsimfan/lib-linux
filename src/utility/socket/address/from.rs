@@ -1,7 +1,7 @@
 use crate::{
-    netinet::r#in::{in6_addr, in_addr, sockaddr_in, sockaddr_in6},
-    sys::socket::{AF_INET, AF_INET6},
     SocketAddress,
+    netinet::r#in::{in_addr, in6_addr, sockaddr_in, sockaddr_in6},
+    sys::socket::{AF_INET, AF_INET6},
 };
 use std::net::{SocketAddr, SocketAddrV4, SocketAddrV6};
 

@@ -2,7 +2,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::signal::SIGCHLD;
+use crate::signal::{SIG_DFL, SIGCHLD};
 
 /// Don't send [`SIGCHLD`] when children stop
 pub const SA_NOCLDSTOP: c_int = 1;

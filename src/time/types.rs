@@ -3,6 +3,10 @@ use std::{
     os::raw::c_void,
 };
 
+// rustdoc imports
+#[allow(unused_imports)]
+use crate::time::CLOCKS_PER_SEC;
+
 #[allow(missing_docs)]
 #[allow(non_camel_case_types)]
 pub type __kernel_time64_t = c_longlong;

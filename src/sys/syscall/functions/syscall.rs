@@ -2,7 +2,7 @@ use std::ffi::c_long;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, ENOSYS};
+use crate::errno::{ENOSYS, errno};
 
 unsafe extern "C" {
     /// Indirect system call

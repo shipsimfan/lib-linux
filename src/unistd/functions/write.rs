@@ -5,16 +5,22 @@ use std::ffi::{c_int, c_void};
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EAGAIN, EBADF, EDESTADDRREQ, EDQUOT, EFAULT, EFBIG, EINTR, EINVAL, EIO, ENOSPC,
-        EPERM, EPIPE, EWOULDBLOCK,
+        EAGAIN, EBADF, EDESTADDRREQ, EDQUOT, EFAULT, EFBIG, EINTR, EINVAL, EIO, ENOSPC, EPERM,
+        EPIPE, EWOULDBLOCK, errno,
     },
-    fcntl::{open, O_APPEND, O_DIRECT, O_NONBLOCK},
+    fcntl::{O_APPEND, O_DIRECT, O_NONBLOCK, open},
     signal::SIGPIPE,
-    sys::socket::connect,
-    unistd::{fsync, read},
+    sys::{
+        resource::{RLIMIT_FSIZE, setrlimit},
+        socket::connect,
+    },
+    unistd::{fsync, lseek, pipe, read},
 };
 
 unsafe extern "C" {
+    /// Write to a file descriptor
+    ///
+    /// # Description
     /// [`write()`] writes up to `count` bytes from the buffer starting at `buf` to the file referred
     /// to by the file descriptor `fd`.
     ///

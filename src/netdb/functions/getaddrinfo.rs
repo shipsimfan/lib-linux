@@ -3,9 +3,18 @@ use std::ffi::{c_char, c_int};
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::sys::socket::{
-    accept, bind, connect, sendmsg, sendto, socket, AF_INET, AF_INET6, AF_UNSPEC, SOCK_DGRAM,
-    SOCK_STREAM,
+use crate::{
+    errno::errno,
+    netdb::{
+        AI_ADDRCONFIG, AI_ALL, AI_CANONNAME, AI_NUMERICHOST, AI_NUMERICSERV, AI_PASSIVE,
+        AI_V4MAPPED, EAI_ADDRFAMILY, EAI_AGAIN, EAI_BADFLAGS, EAI_FAIL, EAI_FAMILY, EAI_MEMORY,
+        EAI_NODATA, EAI_NONAME, EAI_SERVICE, EAI_SOCKTYPE, EAI_SYSTEM,
+    },
+    netinet::r#in::{IPPROTO_TCP, IPPROTO_UDP},
+    sys::socket::{
+        AF_INET, AF_INET6, AF_UNSPEC, SOCK_DGRAM, SOCK_RAW, SOCK_STREAM, accept, bind, connect,
+        sendmsg, sendto, socket,
+    },
 };
 #[allow(unused_imports)]
 use std::ptr::null;
@@ -13,6 +22,7 @@ use std::ptr::null;
 unsafe extern "C" {
     /// Network address and service translation
     ///
+    /// # Description
     /// Given node and service, which identify an Internet host and a service, [`getaddrinfo`]
     /// returns one or more [`addrinfo`] structures, each of which contains an Internet address
     /// that can be specified in a call to [`bind`] or [`connect`]. The [`getaddrinfo`] function
@@ -104,7 +114,32 @@ unsafe extern "C" {
     /// list pointed to by `res`. [`AI_ALL`] is ignored if [`AI_V4MAPPED`] is not also specified.
     ///
     /// # Return Value
-    /// [`getaddrinfo`] returns 0 if it succeeds, or a nonzero error code.
+    /// [`getaddrinfo`] returns 0 if it succeeds, or one of the following nonzero error codes:
+    ///  * [`EAI_ADDRFAMILY`] - The specified network host does not have any network addresses in
+    ///                         the requested address family.
+    ///  * [`EAI_AGAIN`] - The name server returned a temporary failure indication. Try again
+    ///                    later.
+    ///  * [`EAI_BADFLAGS`] - `hints.flags` contains invalid flags; or, `hints.flags`
+    ///                       included [`AI_CANONNAME`] and `name` was [`null`].
+    ///  * [`EAI_FAIL`] - The name server returned a permanent failure indication.
+    ///  * [`EAI_FAMILY`] - The requested address family is not supported.
+    ///  * [`EAI_MEMORY`] - Out of memory.
+    ///  * [`EAI_NODATA`] - The specified network host exists, but does not have any network
+    ///                     addresses defined.
+    ///  * [`EAI_NONAME`] - The node or service is not known; or both node and service are
+    ///                     [`null`]; or [`AI_NUMERICSERV`] was specified in `hints.flags` and
+    ///                     service was not a numeric port-number string.
+    ///  * [`EAI_SERVICE`] - The requested service is not available for the requested socket type.
+    ///                      It may be available through another socket type. For example, this
+    ///                      error could occur if service was "shell" (a service only available on
+    ///                      stream sockets), and either `hints.protocol` was [`IPPROTO_UDP`],
+    ///                      or `hints.socktype` was [`SOCK_DGRAM`]; or the error could occur if
+    ///                      service was not [`null`], and `hints.socktype` was [`SOCK_RAW`] (a
+    ///                      socket type that does not support the concept of services).
+    ///  * [`EAI_SOCKTYPE`] - The requested socket type is not supported. This could occur, for
+    ///                       example, if `hints.socktype` and `hints.protocol` are inconsistent
+    ///                       (e.g., [`SOCK_DGRAM`] and [`IPPROTO_TCP`], respectively).
+    ///  * [`EAI_SYSTEM`] - Other system error, check [`errno`] for details.
     pub fn getaddrinfo(
         node: *const c_char,
         service: *const c_char,

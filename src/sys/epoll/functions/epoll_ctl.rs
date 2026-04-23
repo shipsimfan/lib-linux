@@ -4,10 +4,11 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EEXIST, EINVAL, ELOOP, ENOENT, ENOMEM, ENOSPC, EPERM},
+    errno::{EBADF, EEXIST, EINVAL, ELOOP, ENOENT, ENOMEM, ENOSPC, EPERM, errno},
+    linux::capability::CAP_BLOCK_SUSPEND,
     sys::epoll::{
-        epoll_wait, EPOLLERR, EPOLLET, EPOLLEXCLUSIVE, EPOLLHUP, EPOLLIN, EPOLLONESHOT, EPOLLOUT,
-        EPOLLPRI, EPOLLRDHUP, EPOLLWAKEUP, EPOLL_CTL_ADD, EPOLL_CTL_DEL, EPOLL_CTL_MOD,
+        EPOLL_CTL_ADD, EPOLL_CTL_DEL, EPOLL_CTL_MOD, EPOLLERR, EPOLLET, EPOLLEXCLUSIVE, EPOLLHUP,
+        EPOLLIN, EPOLLONESHOT, EPOLLOUT, EPOLLPRI, EPOLLRDHUP, EPOLLWAKEUP, epoll_wait,
     },
 };
 #[allow(unused_imports)]

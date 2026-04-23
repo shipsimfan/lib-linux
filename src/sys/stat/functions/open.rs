@@ -4,13 +4,14 @@ use std::ffi::{c_char, c_int};
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EAGAIN, EEXIST, EINTR, EINVAL, EIO, EISDIR, ELOOP, EMFILE, ENAMETOOLONG,
-        ENFILE, ENOENT, ENOMEM, ENOSPC, ENOSR, ENOTDIR, ENXIO, EOVERFLOW, EROFS, ETXTBSY,
+        EACCES, EAGAIN, EEXIST, EINTR, EINVAL, EIO, EISDIR, ELOOP, EMFILE, ENAMETOOLONG, ENFILE,
+        ENOENT, ENOMEM, ENOSPC, ENOSR, ENOTDIR, ENXIO, EOVERFLOW, EROFS, ETXTBSY, errno,
     },
     fcntl::{
         self, O_APPEND, O_CREAT, O_DSYNC, O_EXCL, O_NOCTTY, O_NONBLOCK, O_RDONLY, O_RDWR, O_SYNC,
         O_TRUNC, O_WRONLY,
     },
+    sys::types::off_t,
 };
 
 unsafe extern "C" {
@@ -127,7 +128,7 @@ unsafe extern "C" {
     /// [`open`] locks the slave side so that it cannot be opened. Conforming applications shall
     /// call [`unlockpt`] before opening the slave side.
     ///
-    /// The largest value that can be represented correctly in an object of type `off_t` shall be
+    /// The largest value that can be represented correctly in an object of type [`off_t`] shall be
     /// established as the offset maximum in the open file description.
     ///
     /// # Return Value
@@ -169,7 +170,7 @@ unsafe extern "C" {
     ///  * [`ENXIO`] - The named file is a character special or block special file, and the device
     ///                associated with this special file does not exist.
     ///  * [`EOVERFLOW`] - The named file is a regular file and the size of the file cannot be
-    ///                    represented correctly in an object of type `off_t`.
+    ///                    represented correctly in an object of type [`off_t`].
     ///  * [`EROFS`] - The named file resides on a read-only file system and either [`O_WRONLY`],
     ///                [`O_RDWR`], [`O_CREAT`] (if the file does not exist), or [`O_TRUNC`] is set
     ///                in the `oflag` argument.

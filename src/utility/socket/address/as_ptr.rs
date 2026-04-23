@@ -1,4 +1,4 @@
-use crate::{sys::socket::sockaddr, SocketAddress};
+use crate::{SocketAddress, sys::socket::sockaddr};
 
 impl SocketAddress {
     /// Gets a pointer to the underlying socket address

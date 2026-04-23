@@ -3,7 +3,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EINVAL};
+use crate::errno::{EINVAL, errno};
 
 #[link(name = "rt")]
 unsafe extern "C" {

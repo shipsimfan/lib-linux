@@ -4,11 +4,11 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EFAULT, EINVAL},
+    errno::{EFAULT, EINVAL, errno},
     signal::{
         SA_NOCLDSTOP, SA_NOCLDWAIT, SA_NODEFER, SA_NOMASK, SA_ONESHOT, SA_ONSTACK, SA_RESETHAND,
-        SA_RESTART, SA_SIGINFO, SIGCHLD, SIGCONT, SIGKILL, SIGSTOP, SIGTSTP, SIGTTIN, SIGTTOU,
-        SIG_DFL, SIG_IGN,
+        SA_RESTART, SA_SIGINFO, SIG_DFL, SIG_IGN, SIGCHLD, SIGCONT, SIGKILL, SIGSTOP, SIGTSTP,
+        SIGTTIN, SIGTTOU,
     },
 };
 #[allow(unused_imports)]

@@ -1,10 +1,10 @@
-use crate::sys::socket::{sa_family_t, AF_UNSPEC};
+use crate::sys::socket::{AF_UNSPEC, sa_family_t};
 use std::ffi::c_char;
 
 /// A socket address
 #[repr(C)]
 #[allow(non_camel_case_types)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct sockaddr {
     /// Address family
     pub family: sa_family_t,

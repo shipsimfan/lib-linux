@@ -1,8 +1,9 @@
 use crate::{
+    AsHandle, EPoll, Result,
     sys::epoll::{
-        epoll_ctl, epoll_data_t, epoll_event, EPOLL_CTL_ADD, EPOLL_CTL_DEL, EPOLL_CTL_MOD,
+        EPOLL_CTL_ADD, EPOLL_CTL_DEL, EPOLL_CTL_MOD, epoll_ctl, epoll_data_t, epoll_event,
     },
-    try_linux, AsHandle, EPoll, Result,
+    try_linux,
 };
 use std::{ffi::c_void, ptr::null};
 

@@ -5,17 +5,20 @@ use core::ffi::{c_int, c_void};
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EAGAIN, EALREADY, EBADF, ECONNRESET, EDESTADDRREQ, EFAULT, EINTR, EINVAL,
-        EISCONN, EMSGSIZE, ENOBUFS, ENOMEM, ENOTCONN, ENOTSOCK, EOPNOTSUPP, EPIPE, EWOULDBLOCK,
+        EACCES, EAGAIN, EALREADY, EBADF, ECONNRESET, EDESTADDRREQ, EFAULT, EINTR, EINVAL, EISCONN,
+        EMSGSIZE, ENOBUFS, ENOMEM, ENOTCONN, ENOTSOCK, EOPNOTSUPP, EPIPE, EWOULDBLOCK, errno,
     },
     signal::SIGPIPE,
     sys::socket::{
-        sendto, MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT, MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB,
-        SOCK_DGRAM, SOCK_RAW, SOCK_SEQPACKET, SOCK_STREAM,
+        MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT, MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB,
+        SOCK_DGRAM, SOCK_RAW, SOCK_SEQPACKET, SOCK_STREAM, sendto,
     },
 };
 
 unsafe extern "C" {
+    /// Send a message on a socket
+    ///
+    /// # Description
     /// The [`send`] system call is used to transmit a message to another socket.
     ///
     /// The [`send`] call may be used only when the socket is in a connected state (so that the

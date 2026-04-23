@@ -1,6 +1,7 @@
 use crate::{
-    sys::socket::{listen, SOMAXCONN},
-    try_linux, Result, Socket,
+    Result, Socket,
+    sys::socket::{SOMAXCONN, listen},
+    try_linux,
 };
 
 impl Socket {

@@ -4,8 +4,8 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EFAULT, EINTR, EINVAL},
-    sys::epoll::{epoll_ctl, EPOLL_CTL_ADD, EPOLL_CTL_MOD},
+    errno::{EBADF, EFAULT, EINTR, EINVAL, errno},
+    sys::epoll::{EPOLL_CTL_ADD, EPOLL_CTL_MOD, epoll_ctl},
 };
 
 unsafe extern "C" {

@@ -5,6 +5,7 @@ pub mod epoll;
 pub mod eventfd;
 pub mod ioctl;
 pub mod mman;
+pub mod resource;
 pub mod signalfd;
 pub mod socket;
 pub mod stat;

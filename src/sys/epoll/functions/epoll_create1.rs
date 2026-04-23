@@ -3,8 +3,8 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EINVAL, EMFILE, ENFILE, ENOMEM},
-    sys::epoll::{epoll_create, EPOLL_CLOEXEC},
+    errno::{EINVAL, EMFILE, ENFILE, ENOMEM, errno},
+    sys::epoll::{EPOLL_CLOEXEC, epoll_create},
     unistd::close,
 };
 

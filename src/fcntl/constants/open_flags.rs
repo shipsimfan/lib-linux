@@ -2,7 +2,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::{errno::ELOOP, unistd::read};
+use crate::{errno::ELOOP, sys::types::off_t, unistd::read};
 
 /// The mask of access mode flags
 pub const O_ACCMODE: c_int = 0o003;

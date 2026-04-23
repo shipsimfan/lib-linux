@@ -3,8 +3,8 @@ use std::ffi::{c_char, c_int, c_void};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::dlfcn::{
-    dlclose, dlerror, dlsym, RTLD_DEEPBIND, RTLD_GLOBAL, RTLD_LAZY, RTLD_LOCAL, RTLD_NODELETE,
-    RTLD_NOLOAD, RTLD_NOW,
+    RTLD_DEEPBIND, RTLD_GLOBAL, RTLD_LAZY, RTLD_LOCAL, RTLD_NODELETE, RTLD_NOLOAD, RTLD_NOW,
+    dlclose, dlerror, dlsym,
 };
 #[allow(unused_imports)]
 use std::ptr::null_mut;

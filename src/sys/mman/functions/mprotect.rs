@@ -4,7 +4,7 @@ use core::ffi::{c_int, c_void};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EACCES, EINVAL, ENOMEM},
+    errno::{EACCES, EINVAL, ENOMEM, errno},
     sys::mman::{PROT_EXEC, PROT_NONE, PROT_READ, PROT_WRITE},
 };
 

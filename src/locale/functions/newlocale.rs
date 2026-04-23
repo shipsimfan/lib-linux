@@ -4,11 +4,11 @@ use std::ffi::{c_char, c_int};
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EINVAL, ENOENT, ENOMEM},
+    errno::{EINVAL, ENOENT, ENOMEM, errno},
     locale::{
-        freelocale, LC_ADDRESS_MASK, LC_ALL_MASK, LC_COLLATE_MASK, LC_CTYPE_MASK,
-        LC_IDENTIFICATION_MASK, LC_MEASUREMENT_MASK, LC_MESSAGES_MASK, LC_MONETARY_MASK,
-        LC_NAME_MASK, LC_NUMERIC_MASK, LC_PAPER_MASK, LC_TELEPHONE_MASK, LC_TIME_MASK,
+        LC_ADDRESS_MASK, LC_ALL_MASK, LC_COLLATE_MASK, LC_CTYPE_MASK, LC_IDENTIFICATION_MASK,
+        LC_MEASUREMENT_MASK, LC_MESSAGES_MASK, LC_MONETARY_MASK, LC_NAME_MASK, LC_NUMERIC_MASK,
+        LC_PAPER_MASK, LC_TELEPHONE_MASK, LC_TIME_MASK, freelocale,
     },
 };
 #[allow(unused_imports)]

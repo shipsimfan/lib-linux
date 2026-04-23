@@ -3,11 +3,14 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EDQUOT, EINTR, EINVAL, EIO, ENOSPC, EROFS},
+    errno::{EBADF, EDQUOT, EINTR, EINVAL, EIO, ENOSPC, EROFS, errno},
     unistd::{fsync, write},
 };
 
 unsafe extern "C" {
+    /// Synchronize a file's in-core state with storage device
+    ///
+    /// # Description
     /// [`fdatasync`] is similar to [`fsync`], but does not flush modified metadata unless that
     /// metadata is needed in order to allow a subsequent data retrieval to be correctly handled.
     /// For example, changes to `st_atime` or `st_mtime` (respectively, time of last access and

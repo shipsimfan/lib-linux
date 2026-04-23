@@ -1,4 +1,4 @@
-use crate::{sys::eventfd::eventfd, try_linux, EventFd, Result};
+use crate::{EventFd, Result, sys::eventfd::eventfd, try_linux};
 use std::ffi::c_int;
 
 impl EventFd {

@@ -4,17 +4,29 @@ use std::ffi::{c_char, c_int};
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EBADF, EBUSY, EDQUOT, EEXIST, EFAULT, EFBIG, EINTR, EINVAL, EISDIR, ELOOP,
-        EMFILE, ENAMETOOLONG, ENFILE, ENODEV, ENOENT, ENOMEM, ENOSPC, ENOTDIR, ENXIO, EOPNOTSUPP,
-        EOVERFLOW, EPERM, EROFS, ETXTBSY, EWOULDBLOCK,
+        EACCES, EBADF, EBUSY, EDQUOT, EEXIST, EFAULT, EFBIG, EINTR, EINVAL, EISDIR, ELOOP, EMFILE,
+        ENAMETOOLONG, ENFILE, ENODEV, ENOENT, ENOMEM, ENOSPC, ENOTDIR, ENXIO, EOPNOTSUPP,
+        EOVERFLOW, EPERM, EROFS, ETXTBSY, EWOULDBLOCK, errno,
     },
     fcntl::{
-        O_APPEND, O_ASYNC, O_CLOEXEC, O_CREAT, O_DIRECT, O_DIRECTORY, O_DSYNC, O_EXCL, O_LARGEFILE,
-        O_NDELAY, O_NOATIME, O_NOCTTY, O_NOFOLLOW, O_NONBLOCK, O_PATH, O_RDONLY, O_RDWR, O_SYNC,
-        O_TMPFILE, O_TRUNC, O_WRONLY,
+        AT_EMPTY_PATH, AT_SYMLINK_FOLLOW, F_GETFL, O_APPEND, O_ASYNC, O_CLOEXEC, O_CREAT, O_DIRECT,
+        O_DIRECTORY, O_DSYNC, O_EXCL, O_LARGEFILE, O_NDELAY, O_NOATIME, O_NOCTTY, O_NOFOLLOW,
+        O_NONBLOCK, O_PATH, O_RDONLY, O_RDWR, O_SYNC, O_TMPFILE, O_TRUNC, O_WRONLY, fcntl,
     },
-    sys::epoll,
-    unistd::{close, fdatasync, fsync, read, write},
+    linux::capability::CAP_FOWNER,
+    poll::poll,
+    signal::SIGIO,
+    sys::{
+        epoll,
+        ioctl::ioctl,
+        resource::RLIMIT_NOFILE,
+        stat::{
+            S_IRGRP, S_IROTH, S_IRUSR, S_IRWXG, S_IRWXO, S_IRWXU, S_ISGID, S_ISUID, S_ISVTX,
+            S_IWGRP, S_IWOTH, S_IWUSR, S_IXGRP, S_IXOTH, S_IXUSR,
+        },
+        types::off_t,
+    },
+    unistd::{close, fdatasync, fsync, lseek, read, write},
 };
 
 unsafe extern "C" {
@@ -176,8 +188,8 @@ unsafe extern "C" {
     ///                                        employed only if one of the following conditions is
     ///                                        true:
     ///    * The effective UID of the process matches the owner UID of the file.
-    ///    * The calling process has the CAP_FOWNER capability in its user namespace and the owner
-    ///      UID of the file has a mapping in the namespace.
+    ///    * The calling process has the [`CAP_FOWNER`] capability in its user namespace and the
+    ///      owner UID of the file has a mapping in the namespace.
     ///  * [`O_NOCTTY`] - If `pathname` refers to a terminal device, it will not become the
     ///                  process's controlling terminal even if the process does not have one.
     ///  * [`O_NOFOLLOW`] - If the trailing component (i.e., basename) of `pathname` is a symbolic

@@ -1,4 +1,4 @@
-use crate::{string::strerror_r, Error};
+use crate::{Error, string::strerror_r};
 use std::ffi::CStr;
 
 impl std::fmt::Display for Error {

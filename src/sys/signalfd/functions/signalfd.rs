@@ -4,8 +4,8 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM},
-    fcntl::{open, O_CLOEXEC, O_NONBLOCK},
+    errno::{EBADF, EINVAL, EMFILE, ENFILE, ENODEV, ENOMEM, errno},
+    fcntl::{O_CLOEXEC, O_NONBLOCK, open},
     signal::{SIGKILL, SIGSTOP},
     sys::{
         epoll,

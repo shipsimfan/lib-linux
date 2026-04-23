@@ -27,6 +27,7 @@ use crate::sys::stat::statx;
 /// Items in [`STATX_BASIC_STATS`] may be marked unavailable on return, but they will have values
 /// installed for compatibility purposes so that [`stat`] and co. can be emulated in userspace.
 #[repr(C)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Statx {
     /// What results were written
     pub mask: u32,

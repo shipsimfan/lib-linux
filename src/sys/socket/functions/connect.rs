@@ -5,16 +5,19 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EADDRINUSE, EADDRNOTAVAIL, EAFNOSUPPORT, EAGAIN, EALREADY, EBADF,
-        ECONNREFUSED, EFAULT, EINPROGRESS, EINTR, EISCONN, ENETUNREACH, ENOTSOCK, EPERM,
-        EPROTOTYPE, ETIMEDOUT,
+        EACCES, EADDRINUSE, EADDRNOTAVAIL, EAFNOSUPPORT, EAGAIN, EALREADY, EBADF, ECONNREFUSED,
+        EFAULT, EINPROGRESS, EINTR, EISCONN, ENETUNREACH, ENOTSOCK, EPERM, EPROTOTYPE, ETIMEDOUT,
+        errno,
     },
     sys::socket::{
-        getsockopt, AF_UNSPEC, SOCK_DGRAM, SOCK_SEQPACKET, SOCK_STREAM, SOL_SOCKET, SO_ERROR,
+        AF_UNSPEC, SO_ERROR, SOCK_DGRAM, SOCK_SEQPACKET, SOCK_STREAM, SOL_SOCKET, getsockopt,
     },
 };
 
 unsafe extern "C" {
+    /// Initiate a connection on a socket
+    ///
+    /// # Description
     /// The [`connect`] system call connects the socket referred to by the file descriptor `sockfd`
     /// to the address specified by `addr`. The `addrlen` argument specifies the size of `addr`.
     /// The format of the address in `addr` is determined by the address space of the socket

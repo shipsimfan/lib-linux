@@ -3,9 +3,9 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EBADF, EDQUOT, EINTR, EIO, ENOSPC},
+    errno::{EBADF, EDQUOT, EINTR, EIO, ENOSPC, errno},
     fcntl::open,
-    unistd::{fsync, write},
+    unistd::{fsync, unlink, write},
 };
 
 unsafe extern "C" {

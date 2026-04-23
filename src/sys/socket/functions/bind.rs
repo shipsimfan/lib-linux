@@ -5,13 +5,16 @@ use std::ffi::c_int;
 #[allow(unused_imports)]
 use crate::{
     errno::{
-        errno, EACCES, EADDRINUSE, EADDRNOTAVAIL, EBADF, EFAULT, EINVAL, ELOOP, ENAMETOOLONG,
-        ENOENT, ENOMEM, ENOTDIR, ENOTSOCK, EROFS,
+        EACCES, EADDRINUSE, EADDRNOTAVAIL, EBADF, EFAULT, EINVAL, ELOOP, ENAMETOOLONG, ENOENT,
+        ENOMEM, ENOTDIR, ENOTSOCK, EROFS, errno,
     },
-    sys::socket::{accept, socket, SOCK_STREAM},
+    sys::socket::{SOCK_STREAM, accept, socket},
 };
 
 unsafe extern "C" {
+    /// Bind a name to a socket
+    ///
+    /// # Description
     /// When a socket is created with [`socket`], it exists in a name space (address family) but
     /// has no address assigned to it. [`bind`] assigns the address specified by `addr` to the
     /// socket referred to by the file descriptor `sockfd`. `addrlen` specifies the size, in bytes,

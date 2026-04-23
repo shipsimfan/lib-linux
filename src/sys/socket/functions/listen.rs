@@ -3,13 +3,14 @@ use std::ffi::c_int;
 // rustdoc imports
 #[allow(unused_imports)]
 use crate::{
-    errno::{errno, EADDRINUSE, EBADF, ECONNREFUSED, ENOTSOCK, EOPNOTSUPP},
-    sys::socket::{accept, SOCK_SEQPACKET, SOCK_STREAM},
+    errno::{EADDRINUSE, EBADF, ECONNREFUSED, ENOTSOCK, EOPNOTSUPP, errno},
+    sys::socket::{SOCK_SEQPACKET, SOCK_STREAM, accept},
 };
 
 unsafe extern "C" {
-    /// listen - listen for connections on a socket
+    /// Listen for connections on a socket
     ///
+    /// # Description
     /// [`listen`] marks the socket referred to by `sockfd` as a passive socket, that is, as a
     /// socket that will be used to accept incoming connection requests using [`accept`].
     ///

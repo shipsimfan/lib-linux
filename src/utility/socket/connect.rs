@@ -1,4 +1,4 @@
-use crate::{sys::socket::connect, try_linux, Result, Socket, SocketAddress};
+use crate::{Result, Socket, SocketAddress, sys::socket::connect, try_linux};
 
 impl Socket {
     /// Initiate a connection on a socket

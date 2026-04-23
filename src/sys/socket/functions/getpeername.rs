@@ -3,7 +3,7 @@ use std::ffi::c_int;
 
 // rustdoc imports
 #[allow(unused_imports)]
-use crate::errno::{errno, EBADF, EINVAL, ENOBUFS, ENOTCONN, ENOTSOCK, EOPNOTSUPP};
+use crate::errno::{EBADF, EINVAL, ENOBUFS, ENOTCONN, ENOTSOCK, EOPNOTSUPP, errno};
 
 unsafe extern "C" {
     /// Get the name of the peer socket
@@ -33,5 +33,5 @@ unsafe extern "C" {
     ///  * [`EOPNOTSUPP`] - The operation is not supported for the socket protocol.
     ///  * [`ENOBUFS`] - Insufficient resources were available in the system to complete the call.
     pub fn getpeername(socket: c_int, address: *mut sockaddr, address_len: *mut socklen_t)
-        -> c_int;
+    -> c_int;
 }
