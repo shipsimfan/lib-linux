@@ -6,4 +6,4 @@ use crate::sched::cpu_set_t;
 
 /// Type for array elements in [`cpu_set_t`].
 #[allow(non_camel_case_types)]
-pub(in crate::sched) type __cpu_mask = c_ulong;
+pub type __cpu_mask = c_ulong;
