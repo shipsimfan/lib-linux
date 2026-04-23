@@ -10,8 +10,8 @@ use crate::{
         AT_STATX_SYNC_AS_STAT, AT_SYMLINK_NOFOLLOW,
     },
     sys::stat::{
-        STATX__RESERVED, STATX_ATIME, STATX_BASIC_STATS, STATX_BLOCKS, STATX_BTIME, STATX_CTIME,
-        STATX_DIOALIGN, STATX_GID, STATX_INO, STATX_MNT_ID, STATX_MODE, STATX_MTIME, STATX_NLINK,
+        STATX_ATIME, STATX_BASIC_STATS, STATX_BLOCKS, STATX_BTIME, STATX_CTIME, STATX_DIOALIGN,
+        STATX_GID, STATX_INO, STATX_MNT_ID, STATX_MODE, STATX_MTIME, STATX_NLINK, STATX_RESERVED,
         STATX_SIZE, STATX_TYPE, STATX_UID,
     },
 };
@@ -119,7 +119,7 @@ unsafe extern "C" {
     ///                 process's accessible address space.
     ///  * [`EINVAL`] - Invalid flag specified in `flags`.
     ///  * [`EINVAL`] - Reserved flag specified in `mask`. (Currently, there is one such flag,
-    ///                 designated by the constant [`STATX__RESERVED`], with the value
+    ///                 designated by the constant [`STATX_RESERVED`], with the value
     ///                 `0x80000000`.)
     ///  * [`ELOOP`] - Too many symbolic links encountered while traversing the `pathname`.
     ///  * [`ENAMETOOLONG`] - `pathname` is too long.

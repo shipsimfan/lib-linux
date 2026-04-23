@@ -47,4 +47,4 @@ pub const STATX_DIOALIGN: c_uint = 0x00002000;
 
 /// Reserved for [`Statx`] expansion
 #[allow(non_upper_case_globals)]
-pub const STATX__RESERVED: c_uint = 0x80000000;
+pub const STATX_RESERVED: c_uint = 0x80000000;

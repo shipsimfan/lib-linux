@@ -1,13 +1,13 @@
-//! Time types
+//! Execution scheduling
+
+use types::*;
 
 mod constants;
 mod functions;
-mod statics;
+mod macros;
 mod structures;
 mod types;
 
 pub use constants::*;
 pub use functions::*;
-pub use statics::*;
 pub use structures::*;
-pub use types::*;
