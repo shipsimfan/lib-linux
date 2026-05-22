@@ -1,5 +1,9 @@
 use std::ffi::{c_long, c_uint};
 
+/// [`gid_t`] is a type used to hold group IDs. It is an integer type.
+#[allow(non_camel_case_types)]
+pub type gid_t = c_uint;
+
 /// [`uid_t`] is a type used to hold user IDs. It is an integer type.
 #[allow(non_camel_case_types)]
 pub type uid_t = c_uint;

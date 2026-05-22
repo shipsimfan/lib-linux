@@ -25,6 +25,7 @@ pub mod locale;
 pub mod netdb;
 pub mod poll;
 pub mod pthread;
+pub mod pwd;
 pub mod sched;
 pub mod signal;
 pub mod stdlib;
