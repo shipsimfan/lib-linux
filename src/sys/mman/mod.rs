@@ -4,4 +4,4 @@ mod constants;
 mod functions;
 
 pub use constants::*;
-pub use functions::mprotect;
+pub use functions::*;
