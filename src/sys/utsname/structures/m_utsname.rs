@@ -1,6 +1,6 @@
 use crate::sys::utsname::{
-    _UTSNAME_MACHINE_LENGTH, _UTSNAME_NODENAME_LENGTH, _UTSNAME_RELEASE_LENGTH,
-    _UTSNAME_SYSNAME_LENGTH, _UTSNAME_VERSION_LENGTH,
+    _UTSNAME_DOMAIN_LENGTH, _UTSNAME_MACHINE_LENGTH, _UTSNAME_NODENAME_LENGTH,
+    _UTSNAME_RELEASE_LENGTH, _UTSNAME_SYSNAME_LENGTH, _UTSNAME_VERSION_LENGTH,
 };
 use std::ffi::c_char;
 
@@ -22,6 +22,9 @@ pub struct utsname {
 
     /// Name of the hardware type the system is running on
     pub machine: [c_char; _UTSNAME_MACHINE_LENGTH],
+
+    /// Name of the domain this node belongs to
+    pub domainname: [c_char; _UTSNAME_DOMAIN_LENGTH],
 }
 
 impl Default for utsname {
@@ -32,6 +35,7 @@ impl Default for utsname {
             release: [0; _UTSNAME_RELEASE_LENGTH],
             version: [0; _UTSNAME_VERSION_LENGTH],
             machine: [0; _UTSNAME_MACHINE_LENGTH],
+            domainname: [0; _UTSNAME_DOMAIN_LENGTH],
         }
     }
 }
